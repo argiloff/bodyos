@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type ImportStats = {
   products: number;
@@ -26,7 +26,7 @@ export function ImportManager() {
   const [payload, setPayload] = useState("");
   const [status, setStatus] = useState("");
   const [stats, setStats] = useState<ImportStats>(emptyStats);
-  const [loadingStats, setLoadingStats] = useState(true);
+  const [loadingStats, setLoadingStats] = useState(false);
 
   const refreshStats = async () => {
     setLoadingStats(true);
@@ -37,10 +37,6 @@ export function ImportManager() {
     }
     setLoadingStats(false);
   };
-
-  useEffect(() => {
-    void refreshStats();
-  }, []);
 
   const onFileUpload = async (file: File) => {
     const text = await file.text();
@@ -112,7 +108,7 @@ export function ImportManager() {
       <div className="rounded-2xl border border-border bg-card p-4 space-y-3">
         <h2 className="text-lg font-semibold">Import (JSON)</h2>
         <p className="text-sm text-muted">
-          Format: {"{"}"products": [...], "recipes": [...]{"}"}. Zutaten können <code>productId</code> oder{" "}
+          Format: {"{"}&quot;products&quot;: [...], &quot;recipes&quot;: [...]{"}"}. Zutaten können <code>productId</code> oder{" "}
           <code>product_id</code> verwenden.
         </p>
         <a
@@ -150,8 +146,17 @@ export function ImportManager() {
       <div className="rounded-2xl border border-border bg-card p-4 space-y-3">
         <h2 className="text-lg font-semibold">Daten löschen</h2>
         <div className="text-sm text-muted">
-          {loadingStats ? "Lade Statistik..." : `Produkte: ${stats.products}, Rezepte: ${stats.recipes}, Pläne: ${stats.plans}`}
+          {loadingStats
+            ? "Lade Statistik..."
+            : `Produkte: ${stats.products}, Rezepte: ${stats.recipes}, Pläne: ${stats.plans}`}
         </div>
+        <button
+          type="button"
+          onClick={() => void refreshStats()}
+          className="rounded-xl border border-border px-4 py-2 text-sm font-semibold hover:bg-neutral-800"
+        >
+          Statistik aktualisieren
+        </button>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <button
             type="button"

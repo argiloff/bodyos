@@ -463,6 +463,20 @@
       ]
     },
     {
+      "id": "carrot",
+      "name": "Carrot",
+      "category": "vegetable",
+      "kcal_per_100g": 41,
+      "protein_per_100g": 0.9,
+      "fat_per_100g": 0.2,
+      "carbs_per_100g": 10,
+      "fiber_per_100g": 2.8,
+      "allowed_substitutes": [
+        "bell-pepper",
+        "tomato"
+      ]
+    },
+    {
       "id": "onion",
       "name": "Onion",
       "category": "vegetable",

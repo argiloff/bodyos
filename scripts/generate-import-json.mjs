@@ -35,6 +35,7 @@ const products = [
   ["bell-pepper", "Bell Pepper", "vegetable", 31, 1, 0.3, 6, 2.1, ["zucchini", "tomato"]],
   ["tomato", "Tomato", "vegetable", 18, 0.9, 0.2, 3.9, 1.2, ["bell-pepper", "zucchini"]],
   ["cucumber", "Cucumber", "vegetable", 15, 0.7, 0.1, 3.6, 0.5, ["tomato", "zucchini"]],
+  ["carrot", "Carrot", "vegetable", 41, 0.9, 0.2, 10, 2.8, ["bell-pepper", "tomato"]],
   ["onion", "Onion", "vegetable", 40, 1.1, 0.1, 9.3, 1.7, ["leek", "shallot"]],
   ["garlic", "Garlic", "vegetable", 149, 6.4, 0.5, 33, 2.1, ["onion", "ginger"]],
   ["avocado", "Avocado", "fat", 160, 2, 14.7, 8.5, 6.7, ["olive-oil", "nuts-mix"]],
