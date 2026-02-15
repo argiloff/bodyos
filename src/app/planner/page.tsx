@@ -16,7 +16,7 @@ export default async function PlannerPage() {
       <PlannerForm defaults={{ calorieTarget: profile?.calorieTarget, proteinTarget: profile?.proteinTarget }} />
       <section className="space-y-2">
         <h2 className="text-lg font-semibold">Gespeicherte Pläne</h2>
-        {plans.map((p) => (
+        {plans.map((p: (typeof plans)[number]) => (
           <div key={p.id} className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 flex justify-between items-center">
             <div>
               <div className="font-semibold">{new Date(p.startDate).toLocaleDateString()} – {new Date(p.endDate).toLocaleDateString()}</div>
