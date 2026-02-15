@@ -1,9 +1,10 @@
-import { Link, Stack } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
+import { Stack, useRouter } from 'expo-router';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useThemePalette } from '../src/theme';
 
 export default function NotFoundScreen() {
   const theme = useThemePalette();
+  const router = useRouter();
 
   return (
     <>
@@ -11,9 +12,9 @@ export default function NotFoundScreen() {
       <View style={[styles.container, { backgroundColor: theme.background }]}>
         <Text style={[styles.title, { color: theme.text }]}>Diese Seite existiert nicht.</Text>
 
-        <Link href="/" style={styles.link}>
+        <Pressable style={styles.link} onPress={() => router.replace('/')}>
           <Text style={[styles.linkText, { color: theme.accent }]}>Zum Dashboard</Text>
-        </Link>
+        </Pressable>
       </View>
     </>
   );

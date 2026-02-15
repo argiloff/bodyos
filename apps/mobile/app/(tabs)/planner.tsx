@@ -1,4 +1,4 @@
-import { Link } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useAuth } from '../../src/auth/AuthContext';
@@ -18,6 +18,7 @@ const INITIAL_END_DATE = (() => {
 export default function PlannerScreen() {
   const { generatePlan, plans } = useAuth();
   const theme = useThemePalette();
+  const router = useRouter();
   const [startDate, setStartDate] = useState(INITIAL_START_DATE);
   const [endDate, setEndDate] = useState(INITIAL_END_DATE);
   const [calorieTarget, setCalorieTarget] = useState('2000');
@@ -53,13 +54,15 @@ export default function PlannerScreen() {
       <Text style={[styles.status, { color: theme.muted }]}>Pläne gesamt: {plans.length}</Text>
       <View style={styles.planList}>
         {plans.slice(0, 6).map((plan) => (
-          <Link key={plan.id} href={`/plan/${plan.id}`} asChild>
-            <Pressable style={[styles.planCard, { borderColor: theme.border, backgroundColor: theme.card }]}>
-              <Text style={[styles.planTitle, { color: theme.text }]}>{plan.startDate} bis {plan.endDate}</Text>
-              <Text style={[styles.planMeta, { color: theme.muted }]}>{plan.calorieTarget} kcal · {plan.proteinTarget} g Protein</Text>
-              <Text style={[styles.planMeta, { color: theme.muted }]}>{plan.meals.length} Mahlzeiten</Text>
-            </Pressable>
-          </Link>
+          <Pressable
+            key={plan.id}
+            style={[styles.planCard, { borderColor: theme.border, backgroundColor: theme.card }]}
+            onPress={() => router.push(`/plan/${plan.id}`)}
+          >
+            <Text style={[styles.planTitle, { color: theme.text }]}>{plan.startDate} bis {plan.endDate}</Text>
+            <Text style={[styles.planMeta, { color: theme.muted }]}>{plan.calorieTarget} kcal · {plan.proteinTarget} g Protein</Text>
+            <Text style={[styles.planMeta, { color: theme.muted }]}>{plan.meals.length} Mahlzeiten</Text>
+          </Pressable>
         ))}
       </View>
       {status ? <Text style={[styles.status, { color: theme.muted }]}>{status}</Text> : null}

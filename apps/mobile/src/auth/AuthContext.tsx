@@ -109,7 +109,7 @@ type AuthContextValue = {
     calorieTarget: number;
     proteinTarget: number;
   }) => Promise<void>;
-  upsertProduct: (product: Product) => Promise<void>;
+  upsertProduct: (product: Product, previousId?: string) => Promise<void>;
   deleteProduct: (productId: string) => Promise<void>;
   upsertRecipe: (recipe: Recipe) => Promise<void>;
   deleteRecipe: (recipeId: string) => Promise<void>;
@@ -554,13 +554,43 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         };
         await persist({ ...store, plans: [nextPlan, ...store.plans] });
       },
-      async upsertProduct(product) {
+      async upsertProduct(product, previousId) {
         if (!user) throw new Error('Nicht eingeloggt');
-        if (!product.id.trim()) throw new Error('Produkt-ID fehlt');
-        const nextProducts = [...store.products];
-        const index = nextProducts.findIndex((entry) => entry.id === product.id);
-        if (index >= 0) nextProducts[index] = product;
-        else nextProducts.push(product);
+        const normalizedId = product.id.trim();
+        if (!normalizedId) throw new Error('Produkt-ID fehlt');
+
+        const normalizedProduct: Product = {
+          ...product,
+          id: normalizedId,
+          name: product.name.trim(),
+          imageUri: product.imageUri?.trim() || undefined,
+          allowed_substitutes: product.allowed_substitutes ?? [],
+        };
+
+        const sourceId = previousId?.trim();
+        const renamed = !!sourceId && sourceId !== normalizedId;
+
+        let nextProducts = store.products.filter((entry) => !renamed || entry.id !== sourceId);
+        const index = nextProducts.findIndex((entry) => entry.id === normalizedId);
+        if (index >= 0) nextProducts[index] = normalizedProduct;
+        else nextProducts.push(normalizedProduct);
+
+        // Keep references consistent if the product ID was renamed.
+        if (renamed && sourceId) {
+          nextProducts = nextProducts.map((entry) => ({
+            ...entry,
+            allowed_substitutes: (entry.allowed_substitutes ?? []).map((id) => (id === sourceId ? normalizedId : id)),
+          }));
+          const nextRecipes = store.recipes.map((recipe) => ({
+            ...recipe,
+            ingredients: recipe.ingredients.map((ingredient) =>
+              ingredient.productId === sourceId ? { ...ingredient, productId: normalizedId } : ingredient
+            ),
+          }));
+          await persist({ ...store, products: nextProducts, recipes: nextRecipes });
+          return;
+        }
+
         await persist({ ...store, products: nextProducts });
       },
       async deleteProduct(productId) {

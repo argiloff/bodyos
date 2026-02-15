@@ -1,4 +1,4 @@
-import { Link } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useAuth } from '../../src/auth/AuthContext';
 import { useThemePalette } from '../../src/theme';
@@ -6,28 +6,32 @@ import { useThemePalette } from '../../src/theme';
 export default function MoreScreen() {
   const { logout, user } = useAuth();
   const theme = useThemePalette();
+  const router = useRouter();
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       <Text style={[styles.title, { color: theme.text }]}>Mehr</Text>
-      <Link href="/import" asChild>
-        <Pressable style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
-          <Text style={[styles.cardTitle, { color: theme.text }]}>Import</Text>
-          <Text style={[styles.cardMeta, { color: theme.muted }]}>JSON importieren und Daten löschen</Text>
-        </Pressable>
-      </Link>
-      <Link href="/profile" asChild>
-        <Pressable style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
-          <Text style={[styles.cardTitle, { color: theme.text }]}>Profil</Text>
-          <Text style={[styles.cardMeta, { color: theme.muted }]}>Ziele und Ausschlüsse verwalten</Text>
-        </Pressable>
-      </Link>
-      <Link href="/settings" asChild>
-        <Pressable style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
-          <Text style={[styles.cardTitle, { color: theme.text }]}>Einstellungen</Text>
-          <Text style={[styles.cardMeta, { color: theme.muted }]}>App- und Kontoeinstellungen</Text>
-        </Pressable>
-      </Link>
+      <Pressable
+        style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}
+        onPress={() => router.push('/import')}
+      >
+        <Text style={[styles.cardTitle, { color: theme.text }]}>Import</Text>
+        <Text style={[styles.cardMeta, { color: theme.muted }]}>JSON importieren und Daten löschen</Text>
+      </Pressable>
+      <Pressable
+        style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}
+        onPress={() => router.push('/profile')}
+      >
+        <Text style={[styles.cardTitle, { color: theme.text }]}>Profil</Text>
+        <Text style={[styles.cardMeta, { color: theme.muted }]}>Ziele und Ausschlüsse verwalten</Text>
+      </Pressable>
+      <Pressable
+        style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}
+        onPress={() => router.push('/settings')}
+      >
+        <Text style={[styles.cardTitle, { color: theme.text }]}>Einstellungen</Text>
+        <Text style={[styles.cardMeta, { color: theme.muted }]}>App- und Kontoeinstellungen</Text>
+      </Pressable>
       <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
         <Text style={[styles.cardMeta, { color: theme.muted }]}>Eingeloggt als {user?.email}</Text>
         <Pressable style={[styles.logout, { borderColor: theme.border }]} onPress={() => void logout()}>

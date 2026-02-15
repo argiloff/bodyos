@@ -20,6 +20,7 @@ export default function ProductsScreen() {
   const { products, upsertProduct, deleteProduct } = useAuth();
   const theme = useThemePalette();
   const [draft, setDraft] = useState<Product>(emptyProduct);
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [status, setStatus] = useState('');
 
   const sortedProducts = useMemo(
@@ -30,9 +31,10 @@ export default function ProductsScreen() {
   const save = async () => {
     try {
       if (!draft.id.trim() || !draft.name.trim()) throw new Error('Produkt-ID und Name sind erforderlich');
-      await upsertProduct({ ...draft, id: draft.id.trim() });
-      setStatus('Produkt gespeichert');
+      await upsertProduct({ ...draft, id: draft.id.trim() }, editingId ?? undefined);
+      setStatus(editingId ? 'Produkt aktualisiert' : 'Produkt gespeichert');
       setDraft(emptyProduct);
+      setEditingId(null);
     } catch (error) {
       setStatus(error instanceof Error ? error.message : 'Fehler');
     }
@@ -40,6 +42,7 @@ export default function ProductsScreen() {
 
   const startEdit = (product: Product) => {
     setDraft(product);
+    setEditingId(product.id);
     setStatus(`Bearbeite ${product.name}`);
   };
 
@@ -69,6 +72,7 @@ export default function ProductsScreen() {
       ListHeaderComponent={
         <View style={[styles.formCard, { backgroundColor: theme.card, borderColor: theme.border }]}>
           <Text style={[styles.title, { color: theme.text }]}>Produkt bearbeiten</Text>
+          {editingId ? <Text style={[styles.meta, { color: theme.muted }]}>Bearbeitungsmodus: {editingId}</Text> : null}
           <TextInput value={draft.id} onChangeText={(v) => setDraft((d) => ({ ...d, id: v }))} style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]} placeholder="id (slug)" placeholderTextColor={theme.muted} />
           <TextInput value={draft.name} onChangeText={(v) => setDraft((d) => ({ ...d, name: v }))} style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]} placeholder="Name" placeholderTextColor={theme.muted} />
           <TextInput value={draft.category} onChangeText={(v) => setDraft((d) => ({ ...d, category: v }))} style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]} placeholder="Kategorie" placeholderTextColor={theme.muted} />
@@ -145,6 +149,7 @@ export default function ProductsScreen() {
               style={[styles.button, styles.secondary, { backgroundColor: theme.cardAlt }]}
               onPress={() => {
                 setDraft(emptyProduct);
+                setEditingId(null);
                 setStatus('Neues Produkt');
               }}
             >

@@ -1,4 +1,4 @@
-import { Link, Redirect, useLocalSearchParams, useRouter } from 'expo-router';
+import { Redirect, useLocalSearchParams, useRouter } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { PlanMeal, useAuth } from '../../src/auth/AuthContext';
 import { mealTypeLabel, useThemePalette } from '../../src/theme';
@@ -53,12 +53,14 @@ export default function PlanDetailScreen() {
               .map((meal) => {
                 const recipe = getResolvedRecipe(meal.recipeId);
                 return (
-                  <Link key={`${day}-${meal.mealType}-${meal.recipeId}`} href={`/cook/${meal.recipeId}`} asChild>
-                    <Pressable style={[styles.mealRow, { backgroundColor: theme.cardAlt }]}>
-                      <Text style={[styles.mealType, { color: theme.accent }]}>{mealTypeLabel(meal.mealType)}</Text>
-                      <Text style={[styles.mealName, { color: theme.text }]}>{recipe?.name ?? 'Rezept nicht verfügbar'}</Text>
-                    </Pressable>
-                  </Link>
+                  <Pressable
+                    key={`${day}-${meal.mealType}-${meal.recipeId}`}
+                    style={[styles.mealRow, { backgroundColor: theme.cardAlt }]}
+                    onPress={() => router.push(`/cook/${meal.recipeId}`)}
+                  >
+                    <Text style={[styles.mealType, { color: theme.accent }]}>{mealTypeLabel(meal.mealType)}</Text>
+                    <Text style={[styles.mealName, { color: theme.text }]}>{recipe?.name ?? 'Rezept nicht verfügbar'}</Text>
+                  </Pressable>
                 );
               })}
           </View>

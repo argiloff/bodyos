@@ -24,7 +24,7 @@ export default function CookModeScreen() {
   }
 
   const steps = recipe.instructions.length ? recipe.instructions : ['Keine Kochschritte hinterlegt'];
-  const stepProgress = ((step + 1) / steps.length) * 100;
+  const stepProgress = Math.max(0, Math.min(100, ((step + 1) / Math.max(steps.length, 1)) * 100));
   const ingredientRows = recipe.ingredients.map((ingredient) => {
     const product = products.find((entry) => entry.id === ingredient.productId);
     return {
