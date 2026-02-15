@@ -1,5 +1,5 @@
 import * as ImagePicker from 'expo-image-picker';
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { FlatList, Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Product, useAuth } from '../../src/auth/AuthContext';
 import { useThemePalette } from '../../src/theme';
@@ -19,6 +19,7 @@ const emptyProduct: Product = {
 export default function ProductsScreen() {
   const { products, upsertProduct, deleteProduct } = useAuth();
   const theme = useThemePalette();
+  const listRef = useRef<FlatList<Product>>(null);
   const [draft, setDraft] = useState<Product>(emptyProduct);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [status, setStatus] = useState('');
@@ -43,7 +44,8 @@ export default function ProductsScreen() {
   const startEdit = (product: Product) => {
     setDraft(product);
     setEditingId(product.id);
-    setStatus(`Bearbeite ${product.name}`);
+    setStatus(`Bearbeite ${product.name} (${product.id})`);
+    listRef.current?.scrollToOffset({ offset: 0, animated: true });
   };
 
   const pickProductImage = async () => {
@@ -65,6 +67,7 @@ export default function ProductsScreen() {
 
   return (
     <FlatList
+      ref={listRef}
       style={[styles.list, { backgroundColor: theme.background }]}
       data={sortedProducts}
       keyExtractor={(item) => item.id}
@@ -143,7 +146,7 @@ export default function ProductsScreen() {
           />
           <View style={styles.row}>
             <Pressable style={[styles.button, { backgroundColor: theme.accent }]} onPress={() => void save()}>
-              <Text style={[styles.buttonText, { color: theme.accentText }]}>Speichern</Text>
+              <Text style={[styles.buttonText, { color: theme.accentText }]}>{editingId ? 'Änderungen speichern' : 'Speichern'}</Text>
             </Pressable>
             <Pressable
               style={[styles.button, styles.secondary, { backgroundColor: theme.cardAlt }]}
