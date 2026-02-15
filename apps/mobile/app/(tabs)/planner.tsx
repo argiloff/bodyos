@@ -1,3 +1,4 @@
+import { Link } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useAuth } from '../../src/auth/AuthContext';
@@ -48,6 +49,17 @@ export default function PlannerScreen() {
         <Text style={styles.buttonText}>Plan generieren</Text>
       </Pressable>
       <Text style={styles.status}>Pläne gesamt: {plans.length}</Text>
+      <View style={styles.planList}>
+        {plans.slice(0, 6).map((plan) => (
+          <Link key={plan.id} href={`/plan/${plan.id}`} asChild>
+            <Pressable style={styles.planCard}>
+              <Text style={styles.planTitle}>{plan.startDate} bis {plan.endDate}</Text>
+              <Text style={styles.planMeta}>{plan.calorieTarget} kcal · {plan.proteinTarget}g Protein</Text>
+              <Text style={styles.planMeta}>{plan.meals.length} Mahlzeiten</Text>
+            </Pressable>
+          </Link>
+        ))}
+      </View>
       {status ? <Text style={styles.status}>{status}</Text> : null}
     </View>
   );
@@ -68,4 +80,8 @@ const styles = StyleSheet.create({
   button: { backgroundColor: '#6ee7b7', borderRadius: 12, paddingVertical: 12, alignItems: 'center', marginTop: 4 },
   buttonText: { color: '#111827', fontWeight: '700' },
   status: { color: '#94a3b8', marginTop: 8 },
+  planList: { gap: 8, marginTop: 8 },
+  planCard: { borderWidth: 1, borderColor: '#1f2937', borderRadius: 12, backgroundColor: '#10172a', padding: 10 },
+  planTitle: { color: '#fff', fontWeight: '700' },
+  planMeta: { color: '#94a3b8', marginTop: 3 },
 });
