@@ -1,7 +1,7 @@
 import { getCurrentSession } from "@/lib/auth/session";
 import { prisma } from "@/lib/db";
 import { BottomNav } from "@/components/BottomNav";
-import { Calendar, Dumbbell, ChefHat } from "lucide-react";
+import { Calendar, Dumbbell, ChefHat, Upload } from "lucide-react";
 import Link from "next/link";
 
 export default async function DashboardPage() {
@@ -17,7 +17,7 @@ export default async function DashboardPage() {
   return (
     <main className="pb-20 px-4 pt-6 space-y-6">
       <h1 className="text-2xl font-semibold">Willkommen</h1>
-      <section className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4">
           <div className="flex items-center gap-2 text-sm text-[var(--muted)]">
             <Dumbbell size={16} /> Ziel Makros
@@ -41,6 +41,16 @@ export default async function DashboardPage() {
             <div className="text-lg font-semibold">Planer</div>
           </div>
           <ChefHat className="text-[var(--accent)]" />
+        </Link>
+        <Link
+          href="/import"
+          className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-4 flex items-center justify-between"
+        >
+          <div>
+            <div className="text-sm text-[var(--muted)]">Daten importieren</div>
+            <div className="text-lg font-semibold">Import</div>
+          </div>
+          <Upload className="text-[var(--accent)]" />
         </Link>
       </section>
 

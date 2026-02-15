@@ -6,9 +6,14 @@ export const recipeService = {
     return prisma.recipe.findMany({ include: { ingredients: true }, orderBy: { name: "asc" } });
   },
   async upsertMany(rawRecipes: unknown[]) {
+    let processed = 0;
+    let skipped = 0;
     for (const raw of rawRecipes) {
       const parsed = recipeSchema.safeParse(raw);
-      if (!parsed.success) continue;
+      if (!parsed.success) {
+        skipped += 1;
+        continue;
+      }
       const recipe = parsed.data;
       const recipeId = recipe.id ?? crypto.randomUUID();
       await prisma.recipe.upsert({
@@ -42,6 +47,8 @@ export const recipeService = {
           },
         },
       });
+      processed += 1;
     }
+    return { processed, skipped };
   },
 };

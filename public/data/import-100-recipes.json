@@ -1,0 +1,4858 @@
+{
+  "products": [
+    {
+      "id": "chicken-breast",
+      "name": "Chicken Breast",
+      "category": "protein",
+      "kcal_per_100g": 165,
+      "protein_per_100g": 31,
+      "fat_per_100g": 3.6,
+      "carbs_per_100g": 0,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "turkey-breast",
+        "tofu-firm"
+      ]
+    },
+    {
+      "id": "turkey-breast",
+      "name": "Turkey Breast",
+      "category": "protein",
+      "kcal_per_100g": 135,
+      "protein_per_100g": 29,
+      "fat_per_100g": 1.5,
+      "carbs_per_100g": 0,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "chicken-breast",
+        "tofu-firm"
+      ]
+    },
+    {
+      "id": "salmon",
+      "name": "Salmon",
+      "category": "protein",
+      "kcal_per_100g": 208,
+      "protein_per_100g": 20,
+      "fat_per_100g": 13,
+      "carbs_per_100g": 0,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "cod",
+        "tuna-canned"
+      ]
+    },
+    {
+      "id": "tuna-canned",
+      "name": "Tuna (Canned)",
+      "category": "protein",
+      "kcal_per_100g": 116,
+      "protein_per_100g": 26,
+      "fat_per_100g": 1,
+      "carbs_per_100g": 0,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "cod",
+        "salmon"
+      ]
+    },
+    {
+      "id": "cod",
+      "name": "Cod",
+      "category": "protein",
+      "kcal_per_100g": 82,
+      "protein_per_100g": 18,
+      "fat_per_100g": 0.7,
+      "carbs_per_100g": 0,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "tuna-canned",
+        "salmon"
+      ]
+    },
+    {
+      "id": "lean-beef",
+      "name": "Lean Beef",
+      "category": "protein",
+      "kcal_per_100g": 170,
+      "protein_per_100g": 26,
+      "fat_per_100g": 7,
+      "carbs_per_100g": 0,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "turkey-breast",
+        "chicken-breast"
+      ]
+    },
+    {
+      "id": "egg",
+      "name": "Egg",
+      "category": "protein",
+      "kcal_per_100g": 155,
+      "protein_per_100g": 13,
+      "fat_per_100g": 11,
+      "carbs_per_100g": 1.1,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "egg-white",
+        "tofu-firm"
+      ]
+    },
+    {
+      "id": "egg-white",
+      "name": "Egg White",
+      "category": "protein",
+      "kcal_per_100g": 52,
+      "protein_per_100g": 11,
+      "fat_per_100g": 0.2,
+      "carbs_per_100g": 0.7,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "egg",
+        "tofu-firm"
+      ]
+    },
+    {
+      "id": "tofu-firm",
+      "name": "Tofu (Firm)",
+      "category": "protein",
+      "kcal_per_100g": 144,
+      "protein_per_100g": 17,
+      "fat_per_100g": 8,
+      "carbs_per_100g": 3,
+      "fiber_per_100g": 2,
+      "allowed_substitutes": [
+        "tempeh",
+        "chicken-breast"
+      ]
+    },
+    {
+      "id": "tempeh",
+      "name": "Tempeh",
+      "category": "protein",
+      "kcal_per_100g": 193,
+      "protein_per_100g": 20,
+      "fat_per_100g": 11,
+      "carbs_per_100g": 8,
+      "fiber_per_100g": 6,
+      "allowed_substitutes": [
+        "tofu-firm",
+        "chicken-breast"
+      ]
+    },
+    {
+      "id": "greek-yogurt",
+      "name": "Greek Yogurt",
+      "category": "dairy",
+      "kcal_per_100g": 97,
+      "protein_per_100g": 10,
+      "fat_per_100g": 5,
+      "carbs_per_100g": 3.5,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "skyr",
+        "cottage-cheese"
+      ]
+    },
+    {
+      "id": "skyr",
+      "name": "Skyr",
+      "category": "dairy",
+      "kcal_per_100g": 63,
+      "protein_per_100g": 11,
+      "fat_per_100g": 0.2,
+      "carbs_per_100g": 4,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "greek-yogurt",
+        "cottage-cheese"
+      ]
+    },
+    {
+      "id": "cottage-cheese",
+      "name": "Cottage Cheese",
+      "category": "dairy",
+      "kcal_per_100g": 98,
+      "protein_per_100g": 11,
+      "fat_per_100g": 4,
+      "carbs_per_100g": 3.4,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "skyr",
+        "greek-yogurt"
+      ]
+    },
+    {
+      "id": "whey-protein",
+      "name": "Whey Protein",
+      "category": "supplement",
+      "kcal_per_100g": 400,
+      "protein_per_100g": 80,
+      "fat_per_100g": 6,
+      "carbs_per_100g": 8,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "skyr",
+        "greek-yogurt"
+      ]
+    },
+    {
+      "id": "oats",
+      "name": "Oats",
+      "category": "carb",
+      "kcal_per_100g": 389,
+      "protein_per_100g": 16.9,
+      "fat_per_100g": 6.9,
+      "carbs_per_100g": 66.3,
+      "fiber_per_100g": 10.6,
+      "allowed_substitutes": [
+        "quinoa",
+        "whole-wheat-pasta"
+      ]
+    },
+    {
+      "id": "rice",
+      "name": "Rice",
+      "category": "carb",
+      "kcal_per_100g": 130,
+      "protein_per_100g": 2.7,
+      "fat_per_100g": 0.3,
+      "carbs_per_100g": 28,
+      "fiber_per_100g": 0.4,
+      "allowed_substitutes": [
+        "potato",
+        "quinoa"
+      ]
+    },
+    {
+      "id": "quinoa",
+      "name": "Quinoa",
+      "category": "carb",
+      "kcal_per_100g": 120,
+      "protein_per_100g": 4.4,
+      "fat_per_100g": 1.9,
+      "carbs_per_100g": 21.3,
+      "fiber_per_100g": 2.8,
+      "allowed_substitutes": [
+        "rice",
+        "bulgur"
+      ]
+    },
+    {
+      "id": "whole-wheat-pasta",
+      "name": "Whole Wheat Pasta",
+      "category": "carb",
+      "kcal_per_100g": 124,
+      "protein_per_100g": 5,
+      "fat_per_100g": 1.1,
+      "carbs_per_100g": 25,
+      "fiber_per_100g": 3.2,
+      "allowed_substitutes": [
+        "rice",
+        "quinoa"
+      ]
+    },
+    {
+      "id": "bulgur",
+      "name": "Bulgur",
+      "category": "carb",
+      "kcal_per_100g": 83,
+      "protein_per_100g": 3.1,
+      "fat_per_100g": 0.2,
+      "carbs_per_100g": 18.6,
+      "fiber_per_100g": 4.5,
+      "allowed_substitutes": [
+        "quinoa",
+        "rice"
+      ]
+    },
+    {
+      "id": "potato",
+      "name": "Potato",
+      "category": "carb",
+      "kcal_per_100g": 77,
+      "protein_per_100g": 2,
+      "fat_per_100g": 0.1,
+      "carbs_per_100g": 17,
+      "fiber_per_100g": 2.2,
+      "allowed_substitutes": [
+        "sweet-potato",
+        "rice"
+      ]
+    },
+    {
+      "id": "sweet-potato",
+      "name": "Sweet Potato",
+      "category": "carb",
+      "kcal_per_100g": 86,
+      "protein_per_100g": 1.6,
+      "fat_per_100g": 0.1,
+      "carbs_per_100g": 20.1,
+      "fiber_per_100g": 3,
+      "allowed_substitutes": [
+        "potato",
+        "rice"
+      ]
+    },
+    {
+      "id": "wholegrain-bread",
+      "name": "Wholegrain Bread",
+      "category": "carb",
+      "kcal_per_100g": 247,
+      "protein_per_100g": 13,
+      "fat_per_100g": 4.2,
+      "carbs_per_100g": 41,
+      "fiber_per_100g": 7,
+      "allowed_substitutes": [
+        "sourdough-bread",
+        "oats"
+      ]
+    },
+    {
+      "id": "sourdough-bread",
+      "name": "Sourdough Bread",
+      "category": "carb",
+      "kcal_per_100g": 250,
+      "protein_per_100g": 8.5,
+      "fat_per_100g": 1.6,
+      "carbs_per_100g": 49,
+      "fiber_per_100g": 2.7,
+      "allowed_substitutes": [
+        "wholegrain-bread",
+        "rice"
+      ]
+    },
+    {
+      "id": "banana",
+      "name": "Banana",
+      "category": "fruit",
+      "kcal_per_100g": 89,
+      "protein_per_100g": 1.1,
+      "fat_per_100g": 0.3,
+      "carbs_per_100g": 23,
+      "fiber_per_100g": 2.6,
+      "allowed_substitutes": [
+        "apple",
+        "berries-mix"
+      ]
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "category": "fruit",
+      "kcal_per_100g": 52,
+      "protein_per_100g": 0.3,
+      "fat_per_100g": 0.2,
+      "carbs_per_100g": 14,
+      "fiber_per_100g": 2.4,
+      "allowed_substitutes": [
+        "banana",
+        "pear"
+      ]
+    },
+    {
+      "id": "berries-mix",
+      "name": "Berries Mix",
+      "category": "fruit",
+      "kcal_per_100g": 57,
+      "protein_per_100g": 0.7,
+      "fat_per_100g": 0.3,
+      "carbs_per_100g": 14,
+      "fiber_per_100g": 5,
+      "allowed_substitutes": [
+        "apple",
+        "pear"
+      ]
+    },
+    {
+      "id": "pear",
+      "name": "Pear",
+      "category": "fruit",
+      "kcal_per_100g": 57,
+      "protein_per_100g": 0.4,
+      "fat_per_100g": 0.1,
+      "carbs_per_100g": 15,
+      "fiber_per_100g": 3.1,
+      "allowed_substitutes": [
+        "apple",
+        "berries-mix"
+      ]
+    },
+    {
+      "id": "broccoli",
+      "name": "Broccoli",
+      "category": "vegetable",
+      "kcal_per_100g": 34,
+      "protein_per_100g": 2.8,
+      "fat_per_100g": 0.4,
+      "carbs_per_100g": 7,
+      "fiber_per_100g": 2.6,
+      "allowed_substitutes": [
+        "zucchini",
+        "spinach"
+      ]
+    },
+    {
+      "id": "spinach",
+      "name": "Spinach",
+      "category": "vegetable",
+      "kcal_per_100g": 23,
+      "protein_per_100g": 2.9,
+      "fat_per_100g": 0.4,
+      "carbs_per_100g": 3.6,
+      "fiber_per_100g": 2.2,
+      "allowed_substitutes": [
+        "broccoli",
+        "kale"
+      ]
+    },
+    {
+      "id": "zucchini",
+      "name": "Zucchini",
+      "category": "vegetable",
+      "kcal_per_100g": 17,
+      "protein_per_100g": 1.2,
+      "fat_per_100g": 0.3,
+      "carbs_per_100g": 3.1,
+      "fiber_per_100g": 1,
+      "allowed_substitutes": [
+        "broccoli",
+        "bell-pepper"
+      ]
+    },
+    {
+      "id": "bell-pepper",
+      "name": "Bell Pepper",
+      "category": "vegetable",
+      "kcal_per_100g": 31,
+      "protein_per_100g": 1,
+      "fat_per_100g": 0.3,
+      "carbs_per_100g": 6,
+      "fiber_per_100g": 2.1,
+      "allowed_substitutes": [
+        "zucchini",
+        "tomato"
+      ]
+    },
+    {
+      "id": "tomato",
+      "name": "Tomato",
+      "category": "vegetable",
+      "kcal_per_100g": 18,
+      "protein_per_100g": 0.9,
+      "fat_per_100g": 0.2,
+      "carbs_per_100g": 3.9,
+      "fiber_per_100g": 1.2,
+      "allowed_substitutes": [
+        "bell-pepper",
+        "zucchini"
+      ]
+    },
+    {
+      "id": "cucumber",
+      "name": "Cucumber",
+      "category": "vegetable",
+      "kcal_per_100g": 15,
+      "protein_per_100g": 0.7,
+      "fat_per_100g": 0.1,
+      "carbs_per_100g": 3.6,
+      "fiber_per_100g": 0.5,
+      "allowed_substitutes": [
+        "tomato",
+        "zucchini"
+      ]
+    },
+    {
+      "id": "onion",
+      "name": "Onion",
+      "category": "vegetable",
+      "kcal_per_100g": 40,
+      "protein_per_100g": 1.1,
+      "fat_per_100g": 0.1,
+      "carbs_per_100g": 9.3,
+      "fiber_per_100g": 1.7,
+      "allowed_substitutes": [
+        "leek",
+        "shallot"
+      ]
+    },
+    {
+      "id": "garlic",
+      "name": "Garlic",
+      "category": "vegetable",
+      "kcal_per_100g": 149,
+      "protein_per_100g": 6.4,
+      "fat_per_100g": 0.5,
+      "carbs_per_100g": 33,
+      "fiber_per_100g": 2.1,
+      "allowed_substitutes": [
+        "onion",
+        "ginger"
+      ]
+    },
+    {
+      "id": "avocado",
+      "name": "Avocado",
+      "category": "fat",
+      "kcal_per_100g": 160,
+      "protein_per_100g": 2,
+      "fat_per_100g": 14.7,
+      "carbs_per_100g": 8.5,
+      "fiber_per_100g": 6.7,
+      "allowed_substitutes": [
+        "olive-oil",
+        "nuts-mix"
+      ]
+    },
+    {
+      "id": "olive-oil",
+      "name": "Olive Oil",
+      "category": "fat",
+      "kcal_per_100g": 884,
+      "protein_per_100g": 0,
+      "fat_per_100g": 100,
+      "carbs_per_100g": 0,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "canola-oil",
+        "avocado"
+      ]
+    },
+    {
+      "id": "canola-oil",
+      "name": "Canola Oil",
+      "category": "fat",
+      "kcal_per_100g": 884,
+      "protein_per_100g": 0,
+      "fat_per_100g": 100,
+      "carbs_per_100g": 0,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "olive-oil",
+        "avocado"
+      ]
+    },
+    {
+      "id": "nuts-mix",
+      "name": "Nuts Mix",
+      "category": "fat",
+      "kcal_per_100g": 607,
+      "protein_per_100g": 20,
+      "fat_per_100g": 54,
+      "carbs_per_100g": 21,
+      "fiber_per_100g": 8,
+      "allowed_substitutes": [
+        "almonds",
+        "peanut-butter"
+      ]
+    },
+    {
+      "id": "almonds",
+      "name": "Almonds",
+      "category": "fat",
+      "kcal_per_100g": 579,
+      "protein_per_100g": 21,
+      "fat_per_100g": 50,
+      "carbs_per_100g": 22,
+      "fiber_per_100g": 12.5,
+      "allowed_substitutes": [
+        "nuts-mix",
+        "walnuts"
+      ]
+    },
+    {
+      "id": "walnuts",
+      "name": "Walnuts",
+      "category": "fat",
+      "kcal_per_100g": 654,
+      "protein_per_100g": 15,
+      "fat_per_100g": 65,
+      "carbs_per_100g": 14,
+      "fiber_per_100g": 6.7,
+      "allowed_substitutes": [
+        "almonds",
+        "nuts-mix"
+      ]
+    },
+    {
+      "id": "peanut-butter",
+      "name": "Peanut Butter",
+      "category": "fat",
+      "kcal_per_100g": 588,
+      "protein_per_100g": 25,
+      "fat_per_100g": 50,
+      "carbs_per_100g": 20,
+      "fiber_per_100g": 6,
+      "allowed_substitutes": [
+        "almonds",
+        "nuts-mix"
+      ]
+    },
+    {
+      "id": "chia-seeds",
+      "name": "Chia Seeds",
+      "category": "seed",
+      "kcal_per_100g": 486,
+      "protein_per_100g": 17,
+      "fat_per_100g": 31,
+      "carbs_per_100g": 42,
+      "fiber_per_100g": 34,
+      "allowed_substitutes": [
+        "flax-seeds",
+        "oats"
+      ]
+    },
+    {
+      "id": "flax-seeds",
+      "name": "Flax Seeds",
+      "category": "seed",
+      "kcal_per_100g": 534,
+      "protein_per_100g": 18,
+      "fat_per_100g": 42,
+      "carbs_per_100g": 29,
+      "fiber_per_100g": 27,
+      "allowed_substitutes": [
+        "chia-seeds",
+        "oats"
+      ]
+    },
+    {
+      "id": "hummus",
+      "name": "Hummus",
+      "category": "spread",
+      "kcal_per_100g": 166,
+      "protein_per_100g": 8,
+      "fat_per_100g": 10,
+      "carbs_per_100g": 14,
+      "fiber_per_100g": 6,
+      "allowed_substitutes": [
+        "avocado",
+        "cottage-cheese"
+      ]
+    },
+    {
+      "id": "chickpeas",
+      "name": "Chickpeas",
+      "category": "legume",
+      "kcal_per_100g": 164,
+      "protein_per_100g": 8.9,
+      "fat_per_100g": 2.6,
+      "carbs_per_100g": 27.4,
+      "fiber_per_100g": 7.6,
+      "allowed_substitutes": [
+        "lentils",
+        "black-beans"
+      ]
+    },
+    {
+      "id": "lentils",
+      "name": "Lentils",
+      "category": "legume",
+      "kcal_per_100g": 116,
+      "protein_per_100g": 9,
+      "fat_per_100g": 0.4,
+      "carbs_per_100g": 20,
+      "fiber_per_100g": 8,
+      "allowed_substitutes": [
+        "chickpeas",
+        "black-beans"
+      ]
+    },
+    {
+      "id": "black-beans",
+      "name": "Black Beans",
+      "category": "legume",
+      "kcal_per_100g": 132,
+      "protein_per_100g": 8.9,
+      "fat_per_100g": 0.5,
+      "carbs_per_100g": 24,
+      "fiber_per_100g": 8.7,
+      "allowed_substitutes": [
+        "lentils",
+        "chickpeas"
+      ]
+    },
+    {
+      "id": "shrimp",
+      "name": "Shrimp",
+      "category": "protein",
+      "kcal_per_100g": 99,
+      "protein_per_100g": 24,
+      "fat_per_100g": 0.3,
+      "carbs_per_100g": 0.2,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "cod",
+        "tuna-canned"
+      ]
+    },
+    {
+      "id": "milk-1-5",
+      "name": "Milk 1.5%",
+      "category": "dairy",
+      "kcal_per_100g": 47,
+      "protein_per_100g": 3.4,
+      "fat_per_100g": 1.5,
+      "carbs_per_100g": 4.8,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "soy-milk",
+        "almond-milk"
+      ]
+    },
+    {
+      "id": "soy-milk",
+      "name": "Soy Milk",
+      "category": "dairy",
+      "kcal_per_100g": 45,
+      "protein_per_100g": 3.2,
+      "fat_per_100g": 1.8,
+      "carbs_per_100g": 3.1,
+      "fiber_per_100g": 0.6,
+      "allowed_substitutes": [
+        "milk-1-5",
+        "almond-milk"
+      ]
+    },
+    {
+      "id": "almond-milk",
+      "name": "Almond Milk",
+      "category": "dairy",
+      "kcal_per_100g": 15,
+      "protein_per_100g": 0.6,
+      "fat_per_100g": 1.2,
+      "carbs_per_100g": 0.5,
+      "fiber_per_100g": 0.2,
+      "allowed_substitutes": [
+        "soy-milk",
+        "milk-1-5"
+      ]
+    },
+    {
+      "id": "rice-cake",
+      "name": "Rice Cake",
+      "category": "carb",
+      "kcal_per_100g": 387,
+      "protein_per_100g": 8,
+      "fat_per_100g": 3,
+      "carbs_per_100g": 81,
+      "fiber_per_100g": 3.5,
+      "allowed_substitutes": [
+        "wholegrain-bread",
+        "sourdough-bread"
+      ]
+    },
+    {
+      "id": "dark-chocolate",
+      "name": "Dark Chocolate",
+      "category": "snack",
+      "kcal_per_100g": 546,
+      "protein_per_100g": 4.9,
+      "fat_per_100g": 31,
+      "carbs_per_100g": 61,
+      "fiber_per_100g": 7,
+      "allowed_substitutes": [
+        "berries-mix",
+        "nuts-mix"
+      ]
+    },
+    {
+      "id": "honey",
+      "name": "Honey",
+      "category": "sweetener",
+      "kcal_per_100g": 304,
+      "protein_per_100g": 0.3,
+      "fat_per_100g": 0,
+      "carbs_per_100g": 82,
+      "fiber_per_100g": 0.2,
+      "allowed_substitutes": [
+        "banana",
+        "apple"
+      ]
+    },
+    {
+      "id": "parmesan",
+      "name": "Parmesan",
+      "category": "dairy",
+      "kcal_per_100g": 431,
+      "protein_per_100g": 38,
+      "fat_per_100g": 29,
+      "carbs_per_100g": 4.1,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "cottage-cheese",
+        "greek-yogurt"
+      ]
+    },
+    {
+      "id": "mozzarella-light",
+      "name": "Light Mozzarella",
+      "category": "dairy",
+      "kcal_per_100g": 254,
+      "protein_per_100g": 24,
+      "fat_per_100g": 15,
+      "carbs_per_100g": 3,
+      "fiber_per_100g": 0,
+      "allowed_substitutes": [
+        "cottage-cheese",
+        "parmesan"
+      ]
+    },
+    {
+      "id": "rocket",
+      "name": "Rocket",
+      "category": "vegetable",
+      "kcal_per_100g": 25,
+      "protein_per_100g": 2.6,
+      "fat_per_100g": 0.7,
+      "carbs_per_100g": 3.7,
+      "fiber_per_100g": 1.6,
+      "allowed_substitutes": [
+        "spinach",
+        "lettuce"
+      ]
+    },
+    {
+      "id": "lettuce",
+      "name": "Lettuce",
+      "category": "vegetable",
+      "kcal_per_100g": 15,
+      "protein_per_100g": 1.4,
+      "fat_per_100g": 0.2,
+      "carbs_per_100g": 2.9,
+      "fiber_per_100g": 1.3,
+      "allowed_substitutes": [
+        "rocket",
+        "spinach"
+      ]
+    },
+    {
+      "id": "mushroom",
+      "name": "Mushroom",
+      "category": "vegetable",
+      "kcal_per_100g": 22,
+      "protein_per_100g": 3.1,
+      "fat_per_100g": 0.3,
+      "carbs_per_100g": 3.3,
+      "fiber_per_100g": 1,
+      "allowed_substitutes": [
+        "zucchini",
+        "broccoli"
+      ]
+    },
+    {
+      "id": "ginger",
+      "name": "Ginger",
+      "category": "vegetable",
+      "kcal_per_100g": 80,
+      "protein_per_100g": 1.8,
+      "fat_per_100g": 0.8,
+      "carbs_per_100g": 18,
+      "fiber_per_100g": 2,
+      "allowed_substitutes": [
+        "garlic",
+        "onion"
+      ]
+    },
+    {
+      "id": "lemon",
+      "name": "Lemon",
+      "category": "fruit",
+      "kcal_per_100g": 29,
+      "protein_per_100g": 1.1,
+      "fat_per_100g": 0.3,
+      "carbs_per_100g": 9.3,
+      "fiber_per_100g": 2.8,
+      "allowed_substitutes": [
+        "lime",
+        "apple"
+      ]
+    },
+    {
+      "id": "lime",
+      "name": "Lime",
+      "category": "fruit",
+      "kcal_per_100g": 30,
+      "protein_per_100g": 0.7,
+      "fat_per_100g": 0.2,
+      "carbs_per_100g": 10.5,
+      "fiber_per_100g": 2.8,
+      "allowed_substitutes": [
+        "lemon",
+        "apple"
+      ]
+    },
+    {
+      "id": "pesto",
+      "name": "Pesto",
+      "category": "sauce",
+      "kcal_per_100g": 460,
+      "protein_per_100g": 5,
+      "fat_per_100g": 47,
+      "carbs_per_100g": 6,
+      "fiber_per_100g": 1,
+      "allowed_substitutes": [
+        "olive-oil",
+        "parmesan"
+      ]
+    },
+    {
+      "id": "tomato-passata",
+      "name": "Tomato Passata",
+      "category": "sauce",
+      "kcal_per_100g": 33,
+      "protein_per_100g": 1.6,
+      "fat_per_100g": 0.2,
+      "carbs_per_100g": 5.6,
+      "fiber_per_100g": 1.2,
+      "allowed_substitutes": [
+        "tomato",
+        "bell-pepper"
+      ]
+    },
+    {
+      "id": "corn",
+      "name": "Corn",
+      "category": "vegetable",
+      "kcal_per_100g": 86,
+      "protein_per_100g": 3.3,
+      "fat_per_100g": 1.4,
+      "carbs_per_100g": 19,
+      "fiber_per_100g": 2.7,
+      "allowed_substitutes": [
+        "peas",
+        "chickpeas"
+      ]
+    },
+    {
+      "id": "peas",
+      "name": "Peas",
+      "category": "vegetable",
+      "kcal_per_100g": 81,
+      "protein_per_100g": 5.4,
+      "fat_per_100g": 0.4,
+      "carbs_per_100g": 14,
+      "fiber_per_100g": 5,
+      "allowed_substitutes": [
+        "corn",
+        "green-beans"
+      ]
+    },
+    {
+      "id": "green-beans",
+      "name": "Green Beans",
+      "category": "vegetable",
+      "kcal_per_100g": 31,
+      "protein_per_100g": 1.8,
+      "fat_per_100g": 0.1,
+      "carbs_per_100g": 7,
+      "fiber_per_100g": 3.4,
+      "allowed_substitutes": [
+        "peas",
+        "broccoli"
+      ]
+    }
+  ],
+  "recipes": [
+    {
+      "id": "recipe-001",
+      "name": "Breakfast Power Meal 001",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (egg-white) and carbohydrate source (sourdough-bread).",
+        "Add vegetables (cucumber, cucumber) and finish with flax-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "egg-white",
+          "amount_g": 160
+        },
+        {
+          "product_id": "sourdough-bread",
+          "amount_g": 105
+        },
+        {
+          "product_id": "flax-seeds",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 120
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-002",
+      "name": "Lunch Power Meal 002",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tuna-canned) and carbohydrate source (potato).",
+        "Add vegetables (bell-pepper, lettuce) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tuna-canned",
+          "amount_g": 220
+        },
+        {
+          "product_id": "potato",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 25
+        },
+        {
+          "product_id": "bell-pepper",
+          "amount_g": 140
+        },
+        {
+          "product_id": "lettuce",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-003",
+      "name": "Dinner Power Meal 003",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (chicken-breast) and carbohydrate source (rice).",
+        "Add vegetables (spinach, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "chicken-breast",
+          "amount_g": 180
+        },
+        {
+          "product_id": "rice",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 15
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-004",
+      "name": "Snack Power Meal 004",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (egg-white) and carbohydrate source (berries-mix).",
+        "Add vegetables (carrot, carrot) and finish with peanut-butter.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "egg-white",
+          "amount_g": 140
+        },
+        {
+          "product_id": "berries-mix",
+          "amount_g": 80
+        },
+        {
+          "product_id": "peanut-butter",
+          "amount_g": 25
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 40
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 30
+        }
+      ]
+    },
+    {
+      "id": "recipe-005",
+      "name": "Breakfast Power Meal 005",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (whey-protein) and carbohydrate source (banana).",
+        "Add vegetables (tomato, spinach) and finish with almonds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "whey-protein",
+          "amount_g": 180
+        },
+        {
+          "product_id": "banana",
+          "amount_g": 105
+        },
+        {
+          "product_id": "almonds",
+          "amount_g": 25
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 120
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-006",
+      "name": "Lunch Power Meal 006",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (lean-beef) and carbohydrate source (rice).",
+        "Add vegetables (rocket, tomato) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "lean-beef",
+          "amount_g": 180
+        },
+        {
+          "product_id": "rice",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 15
+        },
+        {
+          "product_id": "rocket",
+          "amount_g": 140
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-007",
+      "name": "Dinner Power Meal 007",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (salmon) and carbohydrate source (black-beans).",
+        "Add vegetables (broccoli, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "salmon",
+          "amount_g": 200
+        },
+        {
+          "product_id": "black-beans",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 20
+        },
+        {
+          "product_id": "broccoli",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-008",
+      "name": "Snack Power Meal 008",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (whey-protein) and carbohydrate source (rice-cake).",
+        "Add vegetables (tomato, cucumber) and finish with chia-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "whey-protein",
+          "amount_g": 160
+        },
+        {
+          "product_id": "rice-cake",
+          "amount_g": 80
+        },
+        {
+          "product_id": "chia-seeds",
+          "amount_g": 30
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 40
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        }
+      ]
+    },
+    {
+      "id": "recipe-009",
+      "name": "Breakfast Power Meal 009",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (greek-yogurt) and carbohydrate source (berries-mix).",
+        "Add vegetables (spinach, tomato) and finish with chia-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "greek-yogurt",
+          "amount_g": 140
+        },
+        {
+          "product_id": "berries-mix",
+          "amount_g": 105
+        },
+        {
+          "product_id": "chia-seeds",
+          "amount_g": 15
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 120
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-010",
+      "name": "Lunch Power Meal 010",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (salmon) and carbohydrate source (whole-wheat-pasta).",
+        "Add vegetables (bell-pepper, lettuce) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "salmon",
+          "amount_g": 200
+        },
+        {
+          "product_id": "whole-wheat-pasta",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 20
+        },
+        {
+          "product_id": "bell-pepper",
+          "amount_g": 140
+        },
+        {
+          "product_id": "lettuce",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-011",
+      "name": "Dinner Power Meal 011",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tofu-firm) and carbohydrate source (potato).",
+        "Add vegetables (corn, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tofu-firm",
+          "amount_g": 220
+        },
+        {
+          "product_id": "potato",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 25
+        },
+        {
+          "product_id": "corn",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-012",
+      "name": "Snack Power Meal 012",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (cottage-cheese) and carbohydrate source (banana).",
+        "Add vegetables (cucumber, tomato) and finish with walnuts.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "cottage-cheese",
+          "amount_g": 120
+        },
+        {
+          "product_id": "banana",
+          "amount_g": 80
+        },
+        {
+          "product_id": "walnuts",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 20
+        }
+      ]
+    },
+    {
+      "id": "recipe-013",
+      "name": "Breakfast Power Meal 013",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tofu-firm) and carbohydrate source (apple).",
+        "Add vegetables (cucumber, cucumber) and finish with nuts-mix.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tofu-firm",
+          "amount_g": 160
+        },
+        {
+          "product_id": "apple",
+          "amount_g": 105
+        },
+        {
+          "product_id": "nuts-mix",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 120
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-014",
+      "name": "Lunch Power Meal 014",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (chicken-breast) and carbohydrate source (potato).",
+        "Add vegetables (rocket, tomato) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "chicken-breast",
+          "amount_g": 220
+        },
+        {
+          "product_id": "potato",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 25
+        },
+        {
+          "product_id": "rocket",
+          "amount_g": 140
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-015",
+      "name": "Dinner Power Meal 015",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (cod) and carbohydrate source (quinoa).",
+        "Add vegetables (peas, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "cod",
+          "amount_g": 180
+        },
+        {
+          "product_id": "quinoa",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 15
+        },
+        {
+          "product_id": "peas",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-016",
+      "name": "Snack Power Meal 016",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (greek-yogurt) and carbohydrate source (berries-mix).",
+        "Add vegetables (carrot, carrot) and finish with dark-chocolate.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "greek-yogurt",
+          "amount_g": 140
+        },
+        {
+          "product_id": "berries-mix",
+          "amount_g": 80
+        },
+        {
+          "product_id": "dark-chocolate",
+          "amount_g": 25
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 40
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 30
+        }
+      ]
+    },
+    {
+      "id": "recipe-017",
+      "name": "Breakfast Power Meal 017",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (skyr) and carbohydrate source (rice-cake).",
+        "Add vegetables (tomato, spinach) and finish with peanut-butter.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "skyr",
+          "amount_g": 180
+        },
+        {
+          "product_id": "rice-cake",
+          "amount_g": 105
+        },
+        {
+          "product_id": "peanut-butter",
+          "amount_g": 25
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 120
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-018",
+      "name": "Lunch Power Meal 018",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tofu-firm) and carbohydrate source (rice).",
+        "Add vegetables (bell-pepper, lettuce) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tofu-firm",
+          "amount_g": 180
+        },
+        {
+          "product_id": "rice",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 15
+        },
+        {
+          "product_id": "bell-pepper",
+          "amount_g": 140
+        },
+        {
+          "product_id": "lettuce",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-019",
+      "name": "Dinner Power Meal 019",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (lentils) and carbohydrate source (whole-wheat-pasta).",
+        "Add vegetables (green-beans, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "lentils",
+          "amount_g": 200
+        },
+        {
+          "product_id": "whole-wheat-pasta",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 20
+        },
+        {
+          "product_id": "green-beans",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-020",
+      "name": "Snack Power Meal 020",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (skyr) and carbohydrate source (rice-cake).",
+        "Add vegetables (tomato, cucumber) and finish with almonds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "skyr",
+          "amount_g": 160
+        },
+        {
+          "product_id": "rice-cake",
+          "amount_g": 80
+        },
+        {
+          "product_id": "almonds",
+          "amount_g": 30
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 40
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        }
+      ]
+    },
+    {
+      "id": "recipe-021",
+      "name": "Breakfast Power Meal 021",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (egg) and carbohydrate source (oats).",
+        "Add vegetables (spinach, tomato) and finish with flax-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "egg",
+          "amount_g": 140
+        },
+        {
+          "product_id": "oats",
+          "amount_g": 105
+        },
+        {
+          "product_id": "flax-seeds",
+          "amount_g": 15
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 120
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-022",
+      "name": "Lunch Power Meal 022",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (turkey-breast) and carbohydrate source (whole-wheat-pasta).",
+        "Add vegetables (rocket, tomato) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "turkey-breast",
+          "amount_g": 200
+        },
+        {
+          "product_id": "whole-wheat-pasta",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 20
+        },
+        {
+          "product_id": "rocket",
+          "amount_g": 140
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-023",
+      "name": "Dinner Power Meal 023",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (shrimp) and carbohydrate source (rice).",
+        "Add vegetables (tomato, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "shrimp",
+          "amount_g": 220
+        },
+        {
+          "product_id": "rice",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 25
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-024",
+      "name": "Snack Power Meal 024",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (egg-white) and carbohydrate source (banana).",
+        "Add vegetables (cucumber, tomato) and finish with peanut-butter.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "egg-white",
+          "amount_g": 120
+        },
+        {
+          "product_id": "banana",
+          "amount_g": 80
+        },
+        {
+          "product_id": "peanut-butter",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 20
+        }
+      ]
+    },
+    {
+      "id": "recipe-025",
+      "name": "Breakfast Power Meal 025",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (cottage-cheese) and carbohydrate source (wholegrain-bread).",
+        "Add vegetables (cucumber, cucumber) and finish with almonds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "cottage-cheese",
+          "amount_g": 160
+        },
+        {
+          "product_id": "wholegrain-bread",
+          "amount_g": 105
+        },
+        {
+          "product_id": "almonds",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 120
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-026",
+      "name": "Lunch Power Meal 026",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tempeh) and carbohydrate source (potato).",
+        "Add vegetables (bell-pepper, lettuce) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tempeh",
+          "amount_g": 220
+        },
+        {
+          "product_id": "potato",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 25
+        },
+        {
+          "product_id": "bell-pepper",
+          "amount_g": 140
+        },
+        {
+          "product_id": "lettuce",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-027",
+      "name": "Dinner Power Meal 027",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (chickpeas) and carbohydrate source (black-beans).",
+        "Add vegetables (zucchini, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "chickpeas",
+          "amount_g": 180
+        },
+        {
+          "product_id": "black-beans",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 15
+        },
+        {
+          "product_id": "zucchini",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-028",
+      "name": "Snack Power Meal 028",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (whey-protein) and carbohydrate source (berries-mix).",
+        "Add vegetables (carrot, carrot) and finish with chia-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "whey-protein",
+          "amount_g": 140
+        },
+        {
+          "product_id": "berries-mix",
+          "amount_g": 80
+        },
+        {
+          "product_id": "chia-seeds",
+          "amount_g": 25
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 40
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 30
+        }
+      ]
+    },
+    {
+      "id": "recipe-029",
+      "name": "Breakfast Power Meal 029",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (egg-white) and carbohydrate source (sourdough-bread).",
+        "Add vegetables (tomato, spinach) and finish with chia-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "egg-white",
+          "amount_g": 180
+        },
+        {
+          "product_id": "sourdough-bread",
+          "amount_g": 105
+        },
+        {
+          "product_id": "chia-seeds",
+          "amount_g": 25
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 120
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-030",
+      "name": "Lunch Power Meal 030",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tuna-canned) and carbohydrate source (rice).",
+        "Add vegetables (rocket, tomato) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tuna-canned",
+          "amount_g": 180
+        },
+        {
+          "product_id": "rice",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 15
+        },
+        {
+          "product_id": "rocket",
+          "amount_g": 140
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-031",
+      "name": "Dinner Power Meal 031",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (chicken-breast) and carbohydrate source (potato).",
+        "Add vegetables (spinach, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "chicken-breast",
+          "amount_g": 200
+        },
+        {
+          "product_id": "potato",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 20
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-032",
+      "name": "Snack Power Meal 032",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (cottage-cheese) and carbohydrate source (rice-cake).",
+        "Add vegetables (tomato, cucumber) and finish with walnuts.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "cottage-cheese",
+          "amount_g": 160
+        },
+        {
+          "product_id": "rice-cake",
+          "amount_g": 80
+        },
+        {
+          "product_id": "walnuts",
+          "amount_g": 30
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 40
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        }
+      ]
+    },
+    {
+      "id": "recipe-033",
+      "name": "Breakfast Power Meal 033",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (whey-protein) and carbohydrate source (banana).",
+        "Add vegetables (spinach, tomato) and finish with nuts-mix.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "whey-protein",
+          "amount_g": 140
+        },
+        {
+          "product_id": "banana",
+          "amount_g": 105
+        },
+        {
+          "product_id": "nuts-mix",
+          "amount_g": 15
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 120
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-034",
+      "name": "Lunch Power Meal 034",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (lean-beef) and carbohydrate source (whole-wheat-pasta).",
+        "Add vegetables (bell-pepper, lettuce) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "lean-beef",
+          "amount_g": 200
+        },
+        {
+          "product_id": "whole-wheat-pasta",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 20
+        },
+        {
+          "product_id": "bell-pepper",
+          "amount_g": 140
+        },
+        {
+          "product_id": "lettuce",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-035",
+      "name": "Dinner Power Meal 035",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (salmon) and carbohydrate source (quinoa).",
+        "Add vegetables (broccoli, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "salmon",
+          "amount_g": 220
+        },
+        {
+          "product_id": "quinoa",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 25
+        },
+        {
+          "product_id": "broccoli",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-036",
+      "name": "Snack Power Meal 036",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (greek-yogurt) and carbohydrate source (banana).",
+        "Add vegetables (cucumber, tomato) and finish with dark-chocolate.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "greek-yogurt",
+          "amount_g": 120
+        },
+        {
+          "product_id": "banana",
+          "amount_g": 80
+        },
+        {
+          "product_id": "dark-chocolate",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 20
+        }
+      ]
+    },
+    {
+      "id": "recipe-037",
+      "name": "Breakfast Power Meal 037",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (greek-yogurt) and carbohydrate source (berries-mix).",
+        "Add vegetables (cucumber, cucumber) and finish with peanut-butter.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "greek-yogurt",
+          "amount_g": 160
+        },
+        {
+          "product_id": "berries-mix",
+          "amount_g": 105
+        },
+        {
+          "product_id": "peanut-butter",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 120
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-038",
+      "name": "Lunch Power Meal 038",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (salmon) and carbohydrate source (potato).",
+        "Add vegetables (rocket, tomato) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "salmon",
+          "amount_g": 220
+        },
+        {
+          "product_id": "potato",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 25
+        },
+        {
+          "product_id": "rocket",
+          "amount_g": 140
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-039",
+      "name": "Dinner Power Meal 039",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tofu-firm) and carbohydrate source (whole-wheat-pasta).",
+        "Add vegetables (corn, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tofu-firm",
+          "amount_g": 180
+        },
+        {
+          "product_id": "whole-wheat-pasta",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 15
+        },
+        {
+          "product_id": "corn",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-040",
+      "name": "Snack Power Meal 040",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (skyr) and carbohydrate source (berries-mix).",
+        "Add vegetables (carrot, carrot) and finish with almonds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "skyr",
+          "amount_g": 140
+        },
+        {
+          "product_id": "berries-mix",
+          "amount_g": 80
+        },
+        {
+          "product_id": "almonds",
+          "amount_g": 25
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 40
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 30
+        }
+      ]
+    },
+    {
+      "id": "recipe-041",
+      "name": "Breakfast Power Meal 041",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tofu-firm) and carbohydrate source (apple).",
+        "Add vegetables (tomato, spinach) and finish with flax-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tofu-firm",
+          "amount_g": 180
+        },
+        {
+          "product_id": "apple",
+          "amount_g": 105
+        },
+        {
+          "product_id": "flax-seeds",
+          "amount_g": 25
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 120
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-042",
+      "name": "Lunch Power Meal 042",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (chicken-breast) and carbohydrate source (rice).",
+        "Add vegetables (bell-pepper, lettuce) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "chicken-breast",
+          "amount_g": 180
+        },
+        {
+          "product_id": "rice",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 15
+        },
+        {
+          "product_id": "bell-pepper",
+          "amount_g": 140
+        },
+        {
+          "product_id": "lettuce",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-043",
+      "name": "Dinner Power Meal 043",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (cod) and carbohydrate source (rice).",
+        "Add vegetables (peas, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "cod",
+          "amount_g": 200
+        },
+        {
+          "product_id": "rice",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 20
+        },
+        {
+          "product_id": "peas",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-044",
+      "name": "Snack Power Meal 044",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (egg-white) and carbohydrate source (rice-cake).",
+        "Add vegetables (tomato, cucumber) and finish with peanut-butter.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "egg-white",
+          "amount_g": 160
+        },
+        {
+          "product_id": "rice-cake",
+          "amount_g": 80
+        },
+        {
+          "product_id": "peanut-butter",
+          "amount_g": 30
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 40
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        }
+      ]
+    },
+    {
+      "id": "recipe-045",
+      "name": "Breakfast Power Meal 045",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (skyr) and carbohydrate source (rice-cake).",
+        "Add vegetables (spinach, tomato) and finish with almonds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "skyr",
+          "amount_g": 140
+        },
+        {
+          "product_id": "rice-cake",
+          "amount_g": 105
+        },
+        {
+          "product_id": "almonds",
+          "amount_g": 15
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 120
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-046",
+      "name": "Lunch Power Meal 046",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tofu-firm) and carbohydrate source (whole-wheat-pasta).",
+        "Add vegetables (rocket, tomato) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tofu-firm",
+          "amount_g": 200
+        },
+        {
+          "product_id": "whole-wheat-pasta",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 20
+        },
+        {
+          "product_id": "rocket",
+          "amount_g": 140
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-047",
+      "name": "Dinner Power Meal 047",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (lentils) and carbohydrate source (black-beans).",
+        "Add vegetables (green-beans, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "lentils",
+          "amount_g": 220
+        },
+        {
+          "product_id": "black-beans",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 25
+        },
+        {
+          "product_id": "green-beans",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-048",
+      "name": "Snack Power Meal 048",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (whey-protein) and carbohydrate source (banana).",
+        "Add vegetables (cucumber, tomato) and finish with chia-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "whey-protein",
+          "amount_g": 120
+        },
+        {
+          "product_id": "banana",
+          "amount_g": 80
+        },
+        {
+          "product_id": "chia-seeds",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 20
+        }
+      ]
+    },
+    {
+      "id": "recipe-049",
+      "name": "Breakfast Power Meal 049",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (egg) and carbohydrate source (oats).",
+        "Add vegetables (cucumber, cucumber) and finish with chia-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "egg",
+          "amount_g": 160
+        },
+        {
+          "product_id": "oats",
+          "amount_g": 105
+        },
+        {
+          "product_id": "chia-seeds",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 120
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-050",
+      "name": "Lunch Power Meal 050",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (turkey-breast) and carbohydrate source (potato).",
+        "Add vegetables (bell-pepper, lettuce) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "turkey-breast",
+          "amount_g": 220
+        },
+        {
+          "product_id": "potato",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 25
+        },
+        {
+          "product_id": "bell-pepper",
+          "amount_g": 140
+        },
+        {
+          "product_id": "lettuce",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-051",
+      "name": "Dinner Power Meal 051",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (shrimp) and carbohydrate source (potato).",
+        "Add vegetables (tomato, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "shrimp",
+          "amount_g": 180
+        },
+        {
+          "product_id": "potato",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 15
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-052",
+      "name": "Snack Power Meal 052",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (cottage-cheese) and carbohydrate source (berries-mix).",
+        "Add vegetables (carrot, carrot) and finish with walnuts.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "cottage-cheese",
+          "amount_g": 140
+        },
+        {
+          "product_id": "berries-mix",
+          "amount_g": 80
+        },
+        {
+          "product_id": "walnuts",
+          "amount_g": 25
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 40
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 30
+        }
+      ]
+    },
+    {
+      "id": "recipe-053",
+      "name": "Breakfast Power Meal 053",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (cottage-cheese) and carbohydrate source (wholegrain-bread).",
+        "Add vegetables (tomato, spinach) and finish with nuts-mix.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "cottage-cheese",
+          "amount_g": 180
+        },
+        {
+          "product_id": "wholegrain-bread",
+          "amount_g": 105
+        },
+        {
+          "product_id": "nuts-mix",
+          "amount_g": 25
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 120
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-054",
+      "name": "Lunch Power Meal 054",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tempeh) and carbohydrate source (rice).",
+        "Add vegetables (rocket, tomato) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tempeh",
+          "amount_g": 180
+        },
+        {
+          "product_id": "rice",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 15
+        },
+        {
+          "product_id": "rocket",
+          "amount_g": 140
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-055",
+      "name": "Dinner Power Meal 055",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (chickpeas) and carbohydrate source (quinoa).",
+        "Add vegetables (zucchini, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "chickpeas",
+          "amount_g": 200
+        },
+        {
+          "product_id": "quinoa",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 20
+        },
+        {
+          "product_id": "zucchini",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-056",
+      "name": "Snack Power Meal 056",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (greek-yogurt) and carbohydrate source (rice-cake).",
+        "Add vegetables (tomato, cucumber) and finish with dark-chocolate.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "greek-yogurt",
+          "amount_g": 160
+        },
+        {
+          "product_id": "rice-cake",
+          "amount_g": 80
+        },
+        {
+          "product_id": "dark-chocolate",
+          "amount_g": 30
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 40
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        }
+      ]
+    },
+    {
+      "id": "recipe-057",
+      "name": "Breakfast Power Meal 057",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (egg-white) and carbohydrate source (sourdough-bread).",
+        "Add vegetables (spinach, tomato) and finish with peanut-butter.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "egg-white",
+          "amount_g": 140
+        },
+        {
+          "product_id": "sourdough-bread",
+          "amount_g": 105
+        },
+        {
+          "product_id": "peanut-butter",
+          "amount_g": 15
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 120
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-058",
+      "name": "Lunch Power Meal 058",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tuna-canned) and carbohydrate source (whole-wheat-pasta).",
+        "Add vegetables (bell-pepper, lettuce) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tuna-canned",
+          "amount_g": 200
+        },
+        {
+          "product_id": "whole-wheat-pasta",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 20
+        },
+        {
+          "product_id": "bell-pepper",
+          "amount_g": 140
+        },
+        {
+          "product_id": "lettuce",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-059",
+      "name": "Dinner Power Meal 059",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (chicken-breast) and carbohydrate source (whole-wheat-pasta).",
+        "Add vegetables (spinach, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "chicken-breast",
+          "amount_g": 220
+        },
+        {
+          "product_id": "whole-wheat-pasta",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 25
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-060",
+      "name": "Snack Power Meal 060",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (skyr) and carbohydrate source (banana).",
+        "Add vegetables (cucumber, tomato) and finish with almonds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "skyr",
+          "amount_g": 120
+        },
+        {
+          "product_id": "banana",
+          "amount_g": 80
+        },
+        {
+          "product_id": "almonds",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 20
+        }
+      ]
+    },
+    {
+      "id": "recipe-061",
+      "name": "Breakfast Power Meal 061",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (whey-protein) and carbohydrate source (banana).",
+        "Add vegetables (cucumber, cucumber) and finish with flax-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "whey-protein",
+          "amount_g": 160
+        },
+        {
+          "product_id": "banana",
+          "amount_g": 105
+        },
+        {
+          "product_id": "flax-seeds",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 120
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-062",
+      "name": "Lunch Power Meal 062",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (lean-beef) and carbohydrate source (potato).",
+        "Add vegetables (rocket, tomato) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "lean-beef",
+          "amount_g": 220
+        },
+        {
+          "product_id": "potato",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 25
+        },
+        {
+          "product_id": "rocket",
+          "amount_g": 140
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-063",
+      "name": "Dinner Power Meal 063",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (salmon) and carbohydrate source (rice).",
+        "Add vegetables (broccoli, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "salmon",
+          "amount_g": 180
+        },
+        {
+          "product_id": "rice",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 15
+        },
+        {
+          "product_id": "broccoli",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-064",
+      "name": "Snack Power Meal 064",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (egg-white) and carbohydrate source (berries-mix).",
+        "Add vegetables (carrot, carrot) and finish with peanut-butter.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "egg-white",
+          "amount_g": 140
+        },
+        {
+          "product_id": "berries-mix",
+          "amount_g": 80
+        },
+        {
+          "product_id": "peanut-butter",
+          "amount_g": 25
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 40
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 30
+        }
+      ]
+    },
+    {
+      "id": "recipe-065",
+      "name": "Breakfast Power Meal 065",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (greek-yogurt) and carbohydrate source (berries-mix).",
+        "Add vegetables (tomato, spinach) and finish with almonds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "greek-yogurt",
+          "amount_g": 180
+        },
+        {
+          "product_id": "berries-mix",
+          "amount_g": 105
+        },
+        {
+          "product_id": "almonds",
+          "amount_g": 25
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 120
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-066",
+      "name": "Lunch Power Meal 066",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (salmon) and carbohydrate source (rice).",
+        "Add vegetables (bell-pepper, lettuce) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "salmon",
+          "amount_g": 180
+        },
+        {
+          "product_id": "rice",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 15
+        },
+        {
+          "product_id": "bell-pepper",
+          "amount_g": 140
+        },
+        {
+          "product_id": "lettuce",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-067",
+      "name": "Dinner Power Meal 067",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tofu-firm) and carbohydrate source (black-beans).",
+        "Add vegetables (corn, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tofu-firm",
+          "amount_g": 200
+        },
+        {
+          "product_id": "black-beans",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 20
+        },
+        {
+          "product_id": "corn",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-068",
+      "name": "Snack Power Meal 068",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (whey-protein) and carbohydrate source (rice-cake).",
+        "Add vegetables (tomato, cucumber) and finish with chia-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "whey-protein",
+          "amount_g": 160
+        },
+        {
+          "product_id": "rice-cake",
+          "amount_g": 80
+        },
+        {
+          "product_id": "chia-seeds",
+          "amount_g": 30
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 40
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        }
+      ]
+    },
+    {
+      "id": "recipe-069",
+      "name": "Breakfast Power Meal 069",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tofu-firm) and carbohydrate source (apple).",
+        "Add vegetables (spinach, tomato) and finish with chia-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tofu-firm",
+          "amount_g": 140
+        },
+        {
+          "product_id": "apple",
+          "amount_g": 105
+        },
+        {
+          "product_id": "chia-seeds",
+          "amount_g": 15
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 120
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-070",
+      "name": "Lunch Power Meal 070",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (chicken-breast) and carbohydrate source (whole-wheat-pasta).",
+        "Add vegetables (rocket, tomato) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "chicken-breast",
+          "amount_g": 200
+        },
+        {
+          "product_id": "whole-wheat-pasta",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 20
+        },
+        {
+          "product_id": "rocket",
+          "amount_g": 140
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-071",
+      "name": "Dinner Power Meal 071",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (cod) and carbohydrate source (potato).",
+        "Add vegetables (peas, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "cod",
+          "amount_g": 220
+        },
+        {
+          "product_id": "potato",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 25
+        },
+        {
+          "product_id": "peas",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-072",
+      "name": "Snack Power Meal 072",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (cottage-cheese) and carbohydrate source (banana).",
+        "Add vegetables (cucumber, tomato) and finish with walnuts.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "cottage-cheese",
+          "amount_g": 120
+        },
+        {
+          "product_id": "banana",
+          "amount_g": 80
+        },
+        {
+          "product_id": "walnuts",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 20
+        }
+      ]
+    },
+    {
+      "id": "recipe-073",
+      "name": "Breakfast Power Meal 073",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (skyr) and carbohydrate source (rice-cake).",
+        "Add vegetables (cucumber, cucumber) and finish with nuts-mix.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "skyr",
+          "amount_g": 160
+        },
+        {
+          "product_id": "rice-cake",
+          "amount_g": 105
+        },
+        {
+          "product_id": "nuts-mix",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 120
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-074",
+      "name": "Lunch Power Meal 074",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tofu-firm) and carbohydrate source (potato).",
+        "Add vegetables (bell-pepper, lettuce) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tofu-firm",
+          "amount_g": 220
+        },
+        {
+          "product_id": "potato",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 25
+        },
+        {
+          "product_id": "bell-pepper",
+          "amount_g": 140
+        },
+        {
+          "product_id": "lettuce",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-075",
+      "name": "Dinner Power Meal 075",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (lentils) and carbohydrate source (quinoa).",
+        "Add vegetables (green-beans, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "lentils",
+          "amount_g": 180
+        },
+        {
+          "product_id": "quinoa",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 15
+        },
+        {
+          "product_id": "green-beans",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-076",
+      "name": "Snack Power Meal 076",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (greek-yogurt) and carbohydrate source (berries-mix).",
+        "Add vegetables (carrot, carrot) and finish with dark-chocolate.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "greek-yogurt",
+          "amount_g": 140
+        },
+        {
+          "product_id": "berries-mix",
+          "amount_g": 80
+        },
+        {
+          "product_id": "dark-chocolate",
+          "amount_g": 25
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 40
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 30
+        }
+      ]
+    },
+    {
+      "id": "recipe-077",
+      "name": "Breakfast Power Meal 077",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (egg) and carbohydrate source (oats).",
+        "Add vegetables (tomato, spinach) and finish with peanut-butter.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "egg",
+          "amount_g": 180
+        },
+        {
+          "product_id": "oats",
+          "amount_g": 105
+        },
+        {
+          "product_id": "peanut-butter",
+          "amount_g": 25
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 120
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-078",
+      "name": "Lunch Power Meal 078",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (turkey-breast) and carbohydrate source (rice).",
+        "Add vegetables (rocket, tomato) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "turkey-breast",
+          "amount_g": 180
+        },
+        {
+          "product_id": "rice",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 15
+        },
+        {
+          "product_id": "rocket",
+          "amount_g": 140
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-079",
+      "name": "Dinner Power Meal 079",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (shrimp) and carbohydrate source (whole-wheat-pasta).",
+        "Add vegetables (tomato, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "shrimp",
+          "amount_g": 200
+        },
+        {
+          "product_id": "whole-wheat-pasta",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 20
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-080",
+      "name": "Snack Power Meal 080",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (skyr) and carbohydrate source (rice-cake).",
+        "Add vegetables (tomato, cucumber) and finish with almonds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "skyr",
+          "amount_g": 160
+        },
+        {
+          "product_id": "rice-cake",
+          "amount_g": 80
+        },
+        {
+          "product_id": "almonds",
+          "amount_g": 30
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 40
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        }
+      ]
+    },
+    {
+      "id": "recipe-081",
+      "name": "Breakfast Power Meal 081",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (cottage-cheese) and carbohydrate source (wholegrain-bread).",
+        "Add vegetables (spinach, tomato) and finish with flax-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "cottage-cheese",
+          "amount_g": 140
+        },
+        {
+          "product_id": "wholegrain-bread",
+          "amount_g": 105
+        },
+        {
+          "product_id": "flax-seeds",
+          "amount_g": 15
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 120
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-082",
+      "name": "Lunch Power Meal 082",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tempeh) and carbohydrate source (whole-wheat-pasta).",
+        "Add vegetables (bell-pepper, lettuce) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tempeh",
+          "amount_g": 200
+        },
+        {
+          "product_id": "whole-wheat-pasta",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 20
+        },
+        {
+          "product_id": "bell-pepper",
+          "amount_g": 140
+        },
+        {
+          "product_id": "lettuce",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-083",
+      "name": "Dinner Power Meal 083",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (chickpeas) and carbohydrate source (rice).",
+        "Add vegetables (zucchini, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "chickpeas",
+          "amount_g": 220
+        },
+        {
+          "product_id": "rice",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 25
+        },
+        {
+          "product_id": "zucchini",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-084",
+      "name": "Snack Power Meal 084",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (egg-white) and carbohydrate source (banana).",
+        "Add vegetables (cucumber, tomato) and finish with peanut-butter.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "egg-white",
+          "amount_g": 120
+        },
+        {
+          "product_id": "banana",
+          "amount_g": 80
+        },
+        {
+          "product_id": "peanut-butter",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 20
+        }
+      ]
+    },
+    {
+      "id": "recipe-085",
+      "name": "Breakfast Power Meal 085",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (egg-white) and carbohydrate source (sourdough-bread).",
+        "Add vegetables (cucumber, cucumber) and finish with almonds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "egg-white",
+          "amount_g": 160
+        },
+        {
+          "product_id": "sourdough-bread",
+          "amount_g": 105
+        },
+        {
+          "product_id": "almonds",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 120
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-086",
+      "name": "Lunch Power Meal 086",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tuna-canned) and carbohydrate source (potato).",
+        "Add vegetables (rocket, tomato) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tuna-canned",
+          "amount_g": 220
+        },
+        {
+          "product_id": "potato",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 25
+        },
+        {
+          "product_id": "rocket",
+          "amount_g": 140
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-087",
+      "name": "Dinner Power Meal 087",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (chicken-breast) and carbohydrate source (black-beans).",
+        "Add vegetables (spinach, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "chicken-breast",
+          "amount_g": 180
+        },
+        {
+          "product_id": "black-beans",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 15
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-088",
+      "name": "Snack Power Meal 088",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (whey-protein) and carbohydrate source (berries-mix).",
+        "Add vegetables (carrot, carrot) and finish with chia-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "whey-protein",
+          "amount_g": 140
+        },
+        {
+          "product_id": "berries-mix",
+          "amount_g": 80
+        },
+        {
+          "product_id": "chia-seeds",
+          "amount_g": 25
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 40
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 30
+        }
+      ]
+    },
+    {
+      "id": "recipe-089",
+      "name": "Breakfast Power Meal 089",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (whey-protein) and carbohydrate source (banana).",
+        "Add vegetables (tomato, spinach) and finish with chia-seeds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "whey-protein",
+          "amount_g": 180
+        },
+        {
+          "product_id": "banana",
+          "amount_g": 105
+        },
+        {
+          "product_id": "chia-seeds",
+          "amount_g": 25
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 120
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-090",
+      "name": "Lunch Power Meal 090",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (lean-beef) and carbohydrate source (rice).",
+        "Add vegetables (bell-pepper, lettuce) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "lean-beef",
+          "amount_g": 180
+        },
+        {
+          "product_id": "rice",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 15
+        },
+        {
+          "product_id": "bell-pepper",
+          "amount_g": 140
+        },
+        {
+          "product_id": "lettuce",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-091",
+      "name": "Dinner Power Meal 091",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (salmon) and carbohydrate source (potato).",
+        "Add vegetables (broccoli, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "salmon",
+          "amount_g": 200
+        },
+        {
+          "product_id": "potato",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 20
+        },
+        {
+          "product_id": "broccoli",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-092",
+      "name": "Snack Power Meal 092",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (cottage-cheese) and carbohydrate source (rice-cake).",
+        "Add vegetables (tomato, cucumber) and finish with walnuts.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "cottage-cheese",
+          "amount_g": 160
+        },
+        {
+          "product_id": "rice-cake",
+          "amount_g": 80
+        },
+        {
+          "product_id": "walnuts",
+          "amount_g": 30
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 40
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        }
+      ]
+    },
+    {
+      "id": "recipe-093",
+      "name": "Breakfast Power Meal 093",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (greek-yogurt) and carbohydrate source (berries-mix).",
+        "Add vegetables (spinach, tomato) and finish with nuts-mix.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "greek-yogurt",
+          "amount_g": 140
+        },
+        {
+          "product_id": "berries-mix",
+          "amount_g": 105
+        },
+        {
+          "product_id": "nuts-mix",
+          "amount_g": 15
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 120
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-094",
+      "name": "Lunch Power Meal 094",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (salmon) and carbohydrate source (whole-wheat-pasta).",
+        "Add vegetables (rocket, tomato) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "salmon",
+          "amount_g": 200
+        },
+        {
+          "product_id": "whole-wheat-pasta",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 20
+        },
+        {
+          "product_id": "rocket",
+          "amount_g": 140
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-095",
+      "name": "Dinner Power Meal 095",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tofu-firm) and carbohydrate source (quinoa).",
+        "Add vegetables (corn, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tofu-firm",
+          "amount_g": 220
+        },
+        {
+          "product_id": "quinoa",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 25
+        },
+        {
+          "product_id": "corn",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-096",
+      "name": "Snack Power Meal 096",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (greek-yogurt) and carbohydrate source (banana).",
+        "Add vegetables (cucumber, tomato) and finish with dark-chocolate.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "greek-yogurt",
+          "amount_g": 120
+        },
+        {
+          "product_id": "banana",
+          "amount_g": 80
+        },
+        {
+          "product_id": "dark-chocolate",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 40
+        },
+        {
+          "product_id": "tomato",
+          "amount_g": 20
+        }
+      ]
+    },
+    {
+      "id": "recipe-097",
+      "name": "Breakfast Power Meal 097",
+      "description": "Balanced breakfast recipe with high protein and controlled calories.",
+      "mealType": "breakfast",
+      "tags": [
+        "breakfast",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (tofu-firm) and carbohydrate source (apple).",
+        "Add vegetables (cucumber, cucumber) and finish with peanut-butter.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "tofu-firm",
+          "amount_g": 160
+        },
+        {
+          "product_id": "apple",
+          "amount_g": 105
+        },
+        {
+          "product_id": "peanut-butter",
+          "amount_g": 20
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 120
+        },
+        {
+          "product_id": "cucumber",
+          "amount_g": 90
+        }
+      ]
+    },
+    {
+      "id": "recipe-098",
+      "name": "Lunch Power Meal 098",
+      "description": "Balanced lunch recipe with high protein and controlled calories.",
+      "mealType": "lunch",
+      "tags": [
+        "lunch",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (chicken-breast) and carbohydrate source (potato).",
+        "Add vegetables (bell-pepper, lettuce) and finish with parmesan.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "chicken-breast",
+          "amount_g": 220
+        },
+        {
+          "product_id": "potato",
+          "amount_g": 190
+        },
+        {
+          "product_id": "parmesan",
+          "amount_g": 25
+        },
+        {
+          "product_id": "bell-pepper",
+          "amount_g": 140
+        },
+        {
+          "product_id": "lettuce",
+          "amount_g": 100
+        }
+      ]
+    },
+    {
+      "id": "recipe-099",
+      "name": "Dinner Power Meal 099",
+      "description": "Balanced dinner recipe with high protein and controlled calories.",
+      "mealType": "dinner",
+      "tags": [
+        "dinner",
+        "high-protein",
+        "batch"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (cod) and carbohydrate source (whole-wheat-pasta).",
+        "Add vegetables (peas, spinach) and finish with olive-oil.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "cod",
+          "amount_g": 180
+        },
+        {
+          "product_id": "whole-wheat-pasta",
+          "amount_g": 205
+        },
+        {
+          "product_id": "olive-oil",
+          "amount_g": 15
+        },
+        {
+          "product_id": "peas",
+          "amount_g": 160
+        },
+        {
+          "product_id": "spinach",
+          "amount_g": 80
+        }
+      ]
+    },
+    {
+      "id": "recipe-100",
+      "name": "Snack Power Meal 100",
+      "description": "Balanced snack recipe with high protein and controlled calories.",
+      "mealType": "snack",
+      "tags": [
+        "snack",
+        "high-protein",
+        "quick"
+      ],
+      "instructions": [
+        "Prepare all ingredients and weigh portions.",
+        "Cook the main protein (skyr) and carbohydrate source (berries-mix).",
+        "Add vegetables (carrot, carrot) and finish with almonds.",
+        "Taste, adjust seasoning, and serve warm."
+      ],
+      "ingredients": [
+        {
+          "product_id": "skyr",
+          "amount_g": 140
+        },
+        {
+          "product_id": "berries-mix",
+          "amount_g": 80
+        },
+        {
+          "product_id": "almonds",
+          "amount_g": 25
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 40
+        },
+        {
+          "product_id": "carrot",
+          "amount_g": 30
+        }
+      ]
+    }
+  ]
+}

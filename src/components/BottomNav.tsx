@@ -8,6 +8,7 @@ const links = [
   { href: "/products", label: "Produkte" },
   { href: "/recipes", label: "Rezepte" },
   { href: "/planner", label: "Plan" },
+  { href: "/import", label: "Import" },
   { href: "/profile", label: "Profil" },
 ];
 
@@ -15,7 +16,7 @@ export function BottomNav() {
   const pathname = usePathname();
   return (
     <nav className="fixed bottom-0 inset-x-0 z-20 border-t border-neutral-800 bg-neutral-900/80 backdrop-blur-lg">
-      <div className="grid grid-cols-5 text-sm text-neutral-200">
+      <div className="grid grid-cols-6 text-sm text-neutral-200">
         {links.map((link) => {
           const active = pathname?.startsWith(link.href);
           return (

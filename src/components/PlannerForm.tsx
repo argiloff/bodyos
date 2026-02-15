@@ -29,7 +29,8 @@ export function PlannerForm({
       body: JSON.stringify({ startDate, endDate, calorieTarget: Number(calorieTarget), proteinTarget: Number(proteinTarget) }),
     });
     if (!res.ok) {
-      setStatus("Fehler beim Erstellen");
+      const payload = (await res.json().catch(() => null)) as { error?: string } | null;
+      setStatus(payload?.error ?? "Fehler beim Erstellen");
     } else {
       setStatus("Plan gespeichert");
     }

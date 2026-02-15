@@ -6,10 +6,14 @@ export const productService = {
     return prisma.product.findMany({ orderBy: { name: "asc" } });
   },
   async upsertMany(rawProducts: unknown[]) {
-    const results = [] as const;
+    let processed = 0;
+    let skipped = 0;
     for (const raw of rawProducts) {
       const parsed = productSchema.safeParse(raw);
-      if (!parsed.success) continue;
+      if (!parsed.success) {
+        skipped += 1;
+        continue;
+      }
       const product = parsed.data;
       await prisma.product.upsert({
         where: { id: product.id },
@@ -35,7 +39,8 @@ export const productService = {
           allowed_substitutes: product.allowed_substitutes,
         },
       });
+      processed += 1;
     }
-    return results;
+    return { processed, skipped };
   },
 };
