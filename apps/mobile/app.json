@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "BodyOS Mobile",
+    "slug": "bodyos-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "mobile",
-    "userInterfaceStyle": "automatic",
+    "scheme": "bodyos-mobile",
+    "userInterfaceStyle": "dark",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/images/splash-icon.png",
@@ -14,9 +14,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
+      "bundleIdentifier": "local.bodyos.mobile",
       "supportsTablet": true
     },
     "android": {
+      "package": "local.bodyos.mobile",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -35,6 +37,9 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "apiBaseUrl": "http://localhost:3000"
     }
   }
 }

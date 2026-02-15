@@ -19,9 +19,9 @@ async function getCounts() {
   return { products, recipes, plans, planMeals, recipeIngredients, users, profiles };
 }
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
-    await requireUser();
+    await requireUser(req);
     const counts = await getCounts();
     return NextResponse.json(counts);
   } catch (error) {

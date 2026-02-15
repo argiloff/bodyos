@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BodyOS
 
-## Getting Started
+BodyOS ist jetzt als Hybrid-Stack aufgebaut:
 
-First, run the development server:
+- `Next.js` App (`/src`) als Backend + Web-App (API, DB, Auth.js)
+- `Expo` App (`/apps/mobile`) als native iOS/Android/Web Client
+
+So kannst du sofort mit Expo starten und später native Builds veröffentlichen, ohne das Backend neu zu bauen.
+
+## Architektur
+
+- Backend/API: Next.js App Router + Prisma + SQLite
+- Web UI: Next.js
+- Mobile UI: Expo Router (React Native)
+- Mobile Auth: Bearer Token über `/api/mobile/login` und `/api/mobile/me`
+- Session Auth (Web): NextAuth Credentials
+
+## Voraussetzungen
+
+- Node.js 20+
+- npm
+- Für iOS Builds: Xcode + Apple Developer Setup
+
+## Setup
+
+```bash
+npm install
+```
+
+## Datenbank
+
+```bash
+npm run prisma:generate
+npm run prisma:migrate
+npm run seed:user
+```
+
+Standard Demo-Login:
+
+- `demo@bodyos.local`
+- `Passw0rd!`
+
+## Web starten (Next.js)
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Mobile starten (Expo)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run dev:mobile
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Nützliche mobile Commands:
 
-## Learn More
+```bash
+npm run ios:mobile
+npm run web:mobile
+npm run build:mobile:web
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Mobile API Konfiguration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`apps/mobile/app.json`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```json
+{
+  "expo": {
+    "extra": {
+      "apiBaseUrl": "http://localhost:3000"
+    }
+  }
+}
+```
 
-## Deploy on Vercel
+Für echte Geräte muss `apiBaseUrl` auf deine LAN-IP zeigen (nicht `localhost`).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Import JSON
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Beispieldatei:
+
+- `public/data/import-100-recipes.json`
+
+Import via Web:
+
+- Seite `/import`
+
+Import via Mobile:
+
+- Tab `Mehr` -> `Import`
+
+## Löschen
+
+- Soft Delete: löscht Produkt-/Rezept-/Planungsdaten
+- Hard Delete: zusätzlich alle User/Profile/Sessions (`/api/import?mode=hard`)
+
+## Hinweise für Produktion
+
+- `NEXTAUTH_SECRET` stark und zufällig setzen
+- SQLite für Einzel-Host ok; für mehrere Nutzer/Instanzen Postgres bevorzugen
+- Mobile Token TTL aktuell 24h (`src/lib/auth/mobileToken.ts`)
+- iOS/Android Release-Builds über EAS Build einrichten
