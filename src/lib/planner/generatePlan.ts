@@ -21,7 +21,7 @@ type ProductMap = Record<
   }
 >;
 
-type RecipeIngredientWithProduct = {
+export type RecipeIngredientWithProduct = {
   productId: string;
   amount_g: number;
   product: {
@@ -35,7 +35,7 @@ type RecipeIngredientWithProduct = {
   };
 };
 
-type RecipeWithIngredients = {
+export type RecipeWithIngredients = {
   id: string;
   name: string;
   mealType: string;
@@ -45,7 +45,7 @@ type RecipeWithIngredients = {
   ingredients: RecipeIngredientWithProduct[];
 };
 
-type Macro = {
+export type Macro = {
   kcal: number;
   protein: number;
   fat: number;
@@ -66,7 +66,7 @@ function computeIngredientMacros(ingredient: RecipeIngredientWithProduct) {
   } satisfies Macro;
 }
 
-function computeRecipeMacros(recipe: RecipeWithIngredients) {
+export function computeRecipeMacros(recipe: RecipeWithIngredients) {
   return recipe.ingredients.reduce(
     (acc, ing) => {
       const m = computeIngredientMacros(ing);
@@ -82,7 +82,7 @@ function computeRecipeMacros(recipe: RecipeWithIngredients) {
   );
 }
 
-function substituteIngredients(
+export function substituteIngredients(
   recipe: RecipeWithIngredients,
   excluded: Set<string>,
   products: ProductMap
@@ -115,7 +115,7 @@ function substituteIngredients(
   return { ...recipe, ingredients: newIngredients };
 }
 
-function isWithinTargets(total: Macro, calorieTarget: number, proteinTarget: number) {
+export function isWithinTargets(total: Macro, calorieTarget: number, proteinTarget: number) {
   const kcalLow = calorieTarget * 0.95;
   const kcalHigh = calorieTarget * 1.05;
   return total.kcal >= kcalLow && total.kcal <= kcalHigh && total.protein >= proteinTarget;
