@@ -34,7 +34,7 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
-    await requireUser();
+    await requireUser(req);
     const body = await req.json();
     const parsed = importPayloadSchema.safeParse(body);
     if (!parsed.success) {
@@ -64,7 +64,7 @@ export async function POST(req: Request) {
 
 export async function DELETE(req: Request) {
   try {
-    await requireUser();
+    await requireUser(req);
     const { searchParams } = new URL(req.url);
     const mode = searchParams.get("mode");
 

@@ -3,9 +3,9 @@ import { profileService } from "@/lib/services/profile.service";
 import { requireUser, UnauthorizedError } from "@/lib/auth/session";
 import { profileUpdateSchema } from "@/lib/validation/schemas";
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
-    const userId = await requireUser();
+    const userId = await requireUser(req);
     const profile = await profileService.get(userId);
     return NextResponse.json(profile);
   } catch (error) {
@@ -18,7 +18,7 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
-    const userId = await requireUser();
+    const userId = await requireUser(req);
     const body = await req.json();
     const parsed = profileUpdateSchema.safeParse(body);
     if (!parsed.success) {

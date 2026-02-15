@@ -5,7 +5,7 @@ import { requireUser, UnauthorizedError } from "@/lib/auth/session";
 
 export async function POST(req: Request) {
   try {
-    const userId = await requireUser();
+    const userId = await requireUser(req);
     const body = await req.json();
     const parsed = plannerInputSchema.safeParse({ ...body, userId });
     if (!parsed.success) {

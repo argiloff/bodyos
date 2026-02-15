@@ -4,7 +4,7 @@ import { requireUser, UnauthorizedError } from "@/lib/auth/session";
 
 export async function GET(req: Request) {
   try {
-    const userId = await requireUser();
+    const userId = await requireUser(req);
     const { searchParams } = new URL(req.url);
     const start = searchParams.get("start");
     const end = searchParams.get("end");

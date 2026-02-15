@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 import { requireUser, UnauthorizedError } from "@/lib/auth/session";
 import { prisma } from "@/lib/db";
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
-    const userId = await requireUser();
+    const userId = await requireUser(req);
     const plans = await prisma.plan.findMany({
       where: { userId },
       include: { meals: true },
