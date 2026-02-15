@@ -1,9 +1,11 @@
 import { Tabs, Redirect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../src/auth/AuthContext';
+import { useThemePalette } from '../../src/theme';
 
 export default function TabsLayout() {
   const { user, loading } = useAuth();
+  const theme = useThemePalette();
 
   if (!loading && !user) {
     return <Redirect href="/login" />;
@@ -12,17 +14,17 @@ export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerStyle: { backgroundColor: '#07090f' },
-        headerTintColor: '#fff',
-        tabBarStyle: { backgroundColor: '#0f1729', borderTopColor: '#1f2937' },
-        tabBarActiveTintColor: '#6ee7b7',
-        tabBarInactiveTintColor: '#94a3b8',
+        headerStyle: { backgroundColor: theme.background },
+        headerTintColor: theme.text,
+        tabBarStyle: { backgroundColor: theme.card, borderTopColor: theme.border },
+        tabBarActiveTintColor: theme.accent,
+        tabBarInactiveTintColor: theme.muted,
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: 'Dashboard',
           tabBarIcon: ({ color, size }) => <Ionicons name="home-outline" color={color} size={size} />,
         }}
       />

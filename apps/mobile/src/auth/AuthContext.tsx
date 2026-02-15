@@ -144,6 +144,101 @@ const initialStore: Store = {
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
+const productNameById: Record<string, string> = {
+  'chicken-breast': 'Hähnchenbrust',
+  'turkey-breast': 'Putenbrust',
+  salmon: 'Lachs',
+  'tuna-canned': 'Thunfisch (Dose)',
+  cod: 'Kabeljau',
+  'lean-beef': 'Mageres Rindfleisch',
+  egg: 'Ei',
+  'egg-white': 'Eiklar',
+  'tofu-firm': 'Tofu (fest)',
+  tempeh: 'Tempeh',
+  'greek-yogurt': 'Griechischer Joghurt',
+  skyr: 'Skyr',
+  'cottage-cheese': 'Hüttenkäse',
+  'whey-protein': 'Whey-Protein',
+  oats: 'Haferflocken',
+  rice: 'Reis',
+  quinoa: 'Quinoa',
+  'whole-wheat-pasta': 'Vollkornnudeln',
+  bulgur: 'Bulgur',
+  potato: 'Kartoffel',
+  'sweet-potato': 'Süßkartoffel',
+  'wholegrain-bread': 'Vollkornbrot',
+  'sourdough-bread': 'Sauerteigbrot',
+  banana: 'Banane',
+  apple: 'Apfel',
+  'berries-mix': 'Beerenmix',
+  pear: 'Birne',
+  broccoli: 'Brokkoli',
+  spinach: 'Spinat',
+  zucchini: 'Zucchini',
+  'bell-pepper': 'Paprika',
+  tomato: 'Tomate',
+  cucumber: 'Gurke',
+  carrot: 'Karotte',
+  onion: 'Zwiebel',
+  garlic: 'Knoblauch',
+  avocado: 'Avocado',
+  'olive-oil': 'Olivenöl',
+  'canola-oil': 'Rapsöl',
+  'nuts-mix': 'Nussmix',
+  almonds: 'Mandeln',
+  walnuts: 'Walnüsse',
+  'peanut-butter': 'Erdnussbutter',
+  'chia-seeds': 'Chiasamen',
+  'flax-seeds': 'Leinsamen',
+  hummus: 'Hummus',
+  chickpeas: 'Kichererbsen',
+  lentils: 'Linsen',
+  'black-beans': 'Schwarze Bohnen',
+  shrimp: 'Garnelen',
+  'milk-1-5': 'Milch 1,5%',
+  'soy-milk': 'Sojamilch',
+  'almond-milk': 'Mandelmilch',
+  'rice-cake': 'Reiswaffel',
+  'dark-chocolate': 'Zartbitterschokolade',
+  honey: 'Honig',
+  parmesan: 'Parmesan',
+  'mozzarella-light': 'Mozzarella light',
+  rocket: 'Rucola',
+  lettuce: 'Kopfsalat',
+  mushroom: 'Champignon',
+  ginger: 'Ingwer',
+  lemon: 'Zitrone',
+  lime: 'Limette',
+  pesto: 'Pesto',
+  'tomato-passata': 'Tomatenpassata',
+  corn: 'Mais',
+  peas: 'Erbsen',
+  'green-beans': 'Grüne Bohnen',
+};
+
+const categoryGermanMap: Record<string, string> = {
+  protein: 'Proteinquelle',
+  dairy: 'Milchprodukt',
+  supplement: 'Supplement',
+  carb: 'Kohlenhydratquelle',
+  fruit: 'Obst',
+  vegetable: 'Gemüse',
+  fat: 'Fettquelle',
+  seed: 'Samen',
+  spread: 'Aufstrich',
+  legume: 'Hülsenfrucht',
+  snack: 'Snack',
+  sweetener: 'Süßungsmittel',
+  sauce: 'Sauce',
+};
+
+function mealTypeGerman(mealType: MealType) {
+  if (mealType === 'breakfast') return 'Frühstück';
+  if (mealType === 'lunch') return 'Mittagessen';
+  if (mealType === 'dinner') return 'Abendessen';
+  return 'Snack';
+}
+
 function uid(prefix: string) {
   return `${prefix}-${Math.random().toString(36).slice(2, 10)}`;
 }
@@ -186,6 +281,63 @@ function substituteRecipe(recipe: Recipe, excluded: Set<string>, productsById: R
   return { ...recipe, ingredients };
 }
 
+function normalizeStoreToGerman(input: Store): { store: Store; changed: boolean } {
+  let changed = false;
+
+  const products = input.products.map((product) => {
+    const nextName = productNameById[product.id] ?? product.name;
+    const nextCategory = categoryGermanMap[product.category] ?? product.category;
+    if (nextName !== product.name || nextCategory !== product.category) changed = true;
+    return {
+      ...product,
+      name: nextName,
+      category: nextCategory,
+    };
+  });
+
+  const recipes = input.recipes.map((recipe) => {
+    const number = recipe.id.match(/(\d+)/)?.[1];
+    const generatedName = number ? `${mealTypeGerman(recipe.mealType)} Rezept ${number}` : `${mealTypeGerman(recipe.mealType)} Rezept`;
+    const englishName = /power meal|breakfast|lunch|dinner|snack/i.test(recipe.name);
+    const englishDescription = /balanced|high protein|meal/i.test(recipe.description);
+    const englishSteps = recipe.instructions.some((step) => /prepare|cook|serve|ingredients/i.test(step));
+    const englishTags = recipe.tags.some((tag) => /high-protein|quick|batch|breakfast|lunch|dinner|snack/i.test(tag));
+
+    const nextName = englishName ? generatedName : recipe.name;
+    const nextDescription = englishDescription
+      ? `Ausgewogenes ${mealTypeGerman(recipe.mealType).toLowerCase()} mit Fokus auf Protein, Ballaststoffe und alltagstaugliche Zubereitung.`
+      : recipe.description;
+    const nextInstructions = englishSteps
+      ? [
+          'Alle Zutaten vorbereiten und exakt abwiegen.',
+          'Proteinquelle hygienisch und vollständig garen.',
+          'Beilagen und Gemüse separat garen und anschließend kombinieren.',
+          'Würzen, abschmecken und direkt servieren.',
+        ]
+      : recipe.instructions;
+    const nextTags = englishTags ? [mealTypeGerman(recipe.mealType).toLowerCase(), 'proteinreich', 'alltag'] : recipe.tags;
+
+    if (
+      nextName !== recipe.name ||
+      nextDescription !== recipe.description ||
+      nextInstructions !== recipe.instructions ||
+      nextTags !== recipe.tags
+    ) {
+      changed = true;
+    }
+
+    return {
+      ...recipe,
+      name: nextName,
+      description: nextDescription,
+      instructions: nextInstructions,
+      tags: nextTags,
+    };
+  });
+
+  return { store: { ...input, products, recipes }, changed };
+}
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [store, setStore] = useState<Store>(initialStore);
@@ -205,9 +357,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           AsyncStorage.getItem(SESSION_KEY),
         ]);
         const parsedStore = rawStore ? (JSON.parse(rawStore) as Store) : initialStore;
-        if (mounted) setStore(parsedStore);
+        const migrated = normalizeStoreToGerman(parsedStore);
+        if (migrated.changed) {
+          await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(migrated.store));
+        }
+        if (mounted) setStore(migrated.store);
         if (rawSession && mounted) {
-          const found = parsedStore.users.find((entry) => entry.id === rawSession);
+          const found = migrated.store.users.find((entry) => entry.id === rawSession);
           setUser(found ?? null);
         }
       } finally {
@@ -293,7 +449,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           });
         }
         const nextRecipes = [...recipesById.values()];
-        await persist({ ...store, products: nextProducts, recipes: nextRecipes });
+        const normalized = normalizeStoreToGerman({ ...store, products: nextProducts, recipes: nextRecipes });
+        await persist(normalized.store);
         return { products: payload.products.length, recipes: payload.recipes.length };
       },
       async clearSoft() {

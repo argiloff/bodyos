@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Product, useAuth } from '../../src/auth/AuthContext';
+import { useThemePalette } from '../../src/theme';
 
 const emptyProduct: Product = {
   id: '',
@@ -16,6 +17,7 @@ const emptyProduct: Product = {
 
 export default function ProductsScreen() {
   const { products, upsertProduct, deleteProduct } = useAuth();
+  const theme = useThemePalette();
   const [draft, setDraft] = useState<Product>(emptyProduct);
   const [status, setStatus] = useState('');
 
@@ -42,54 +44,54 @@ export default function ProductsScreen() {
 
   return (
     <FlatList
-      style={styles.list}
+      style={[styles.list, { backgroundColor: theme.background }]}
       data={sortedProducts}
       keyExtractor={(item) => item.id}
       contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 140 }}
       ListHeaderComponent={
-        <View style={styles.formCard}>
-          <Text style={styles.title}>Produkt bearbeiten</Text>
-          <TextInput value={draft.id} onChangeText={(v) => setDraft((d) => ({ ...d, id: v }))} style={styles.input} placeholder="id (slug)" placeholderTextColor="#64748b" />
-          <TextInput value={draft.name} onChangeText={(v) => setDraft((d) => ({ ...d, name: v }))} style={styles.input} placeholder="Name" placeholderTextColor="#64748b" />
-          <TextInput value={draft.category} onChangeText={(v) => setDraft((d) => ({ ...d, category: v }))} style={styles.input} placeholder="Kategorie" placeholderTextColor="#64748b" />
+        <View style={[styles.formCard, { backgroundColor: theme.card, borderColor: theme.border }]}>
+          <Text style={[styles.title, { color: theme.text }]}>Produkt bearbeiten</Text>
+          <TextInput value={draft.id} onChangeText={(v) => setDraft((d) => ({ ...d, id: v }))} style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]} placeholder="id (slug)" placeholderTextColor={theme.muted} />
+          <TextInput value={draft.name} onChangeText={(v) => setDraft((d) => ({ ...d, name: v }))} style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]} placeholder="Name" placeholderTextColor={theme.muted} />
+          <TextInput value={draft.category} onChangeText={(v) => setDraft((d) => ({ ...d, category: v }))} style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]} placeholder="Kategorie" placeholderTextColor={theme.muted} />
           <TextInput
             value={String(draft.kcal_per_100g)}
             onChangeText={(v) => setDraft((d) => ({ ...d, kcal_per_100g: Number(v) || 0 }))}
-            style={styles.input}
+            style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]}
             placeholder="kcal pro 100g"
-            placeholderTextColor="#64748b"
+            placeholderTextColor={theme.muted}
             keyboardType="numeric"
           />
           <TextInput
             value={String(draft.protein_per_100g)}
             onChangeText={(v) => setDraft((d) => ({ ...d, protein_per_100g: Number(v) || 0 }))}
-            style={styles.input}
+            style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]}
             placeholder="protein pro 100g"
-            placeholderTextColor="#64748b"
+            placeholderTextColor={theme.muted}
             keyboardType="numeric"
           />
           <TextInput
             value={String(draft.fat_per_100g)}
             onChangeText={(v) => setDraft((d) => ({ ...d, fat_per_100g: Number(v) || 0 }))}
-            style={styles.input}
+            style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]}
             placeholder="fett pro 100g"
-            placeholderTextColor="#64748b"
+            placeholderTextColor={theme.muted}
             keyboardType="numeric"
           />
           <TextInput
             value={String(draft.carbs_per_100g)}
             onChangeText={(v) => setDraft((d) => ({ ...d, carbs_per_100g: Number(v) || 0 }))}
-            style={styles.input}
+            style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]}
             placeholder="kohlenhydrate pro 100g"
-            placeholderTextColor="#64748b"
+            placeholderTextColor={theme.muted}
             keyboardType="numeric"
           />
           <TextInput
             value={String(draft.fiber_per_100g)}
             onChangeText={(v) => setDraft((d) => ({ ...d, fiber_per_100g: Number(v) || 0 }))}
-            style={styles.input}
+            style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]}
             placeholder="ballaststoffe pro 100g"
-            placeholderTextColor="#64748b"
+            placeholderTextColor={theme.muted}
             keyboardType="numeric"
           />
           <TextInput
@@ -100,38 +102,38 @@ export default function ProductsScreen() {
                 allowed_substitutes: v.split(',').map((item) => item.trim()).filter(Boolean),
               }))
             }
-            style={styles.input}
+            style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]}
             placeholder="substitutes: id1,id2"
-            placeholderTextColor="#64748b"
+            placeholderTextColor={theme.muted}
           />
           <View style={styles.row}>
-            <Pressable style={styles.button} onPress={() => void save()}>
-              <Text style={styles.buttonText}>Speichern</Text>
+            <Pressable style={[styles.button, { backgroundColor: theme.accent }]} onPress={() => void save()}>
+              <Text style={[styles.buttonText, { color: theme.accentText }]}>Speichern</Text>
             </Pressable>
             <Pressable
-              style={[styles.button, styles.secondary]}
+              style={[styles.button, styles.secondary, { backgroundColor: theme.cardAlt }]}
               onPress={() => {
                 setDraft(emptyProduct);
                 setStatus('Neues Produkt');
               }}
             >
-              <Text style={styles.buttonText}>Neu</Text>
+              <Text style={[styles.buttonText, { color: theme.text }]}>Neu</Text>
             </Pressable>
           </View>
-          {status ? <Text style={styles.status}>{status}</Text> : null}
+          {status ? <Text style={[styles.status, { color: theme.muted }]}>{status}</Text> : null}
         </View>
       }
       renderItem={({ item }) => (
-        <View style={styles.card}>
-          <Text style={styles.name}>{item.name}</Text>
-          <Text style={styles.meta}>{item.id} · {item.category}</Text>
-          <Text style={styles.meta}>{item.kcal_per_100g} kcal / {item.protein_per_100g}g Protein</Text>
+        <View style={[styles.card, { borderColor: theme.border, backgroundColor: theme.card }]}>
+          <Text style={[styles.name, { color: theme.text }]}>{item.name}</Text>
+          <Text style={[styles.meta, { color: theme.muted }]}>{item.id} · {item.category}</Text>
+          <Text style={[styles.meta, { color: theme.muted }]}>{item.kcal_per_100g} kcal / {item.protein_per_100g} g Protein</Text>
           <View style={styles.row}>
-            <Pressable style={styles.smallButton} onPress={() => startEdit(item)}>
-              <Text style={styles.smallButtonText}>Bearbeiten</Text>
+            <Pressable style={[styles.smallButton, { backgroundColor: theme.cardAlt }]} onPress={() => startEdit(item)}>
+              <Text style={[styles.smallButtonText, { color: theme.text }]}>Bearbeiten</Text>
             </Pressable>
-            <Pressable style={[styles.smallButton, styles.delete]} onPress={() => void deleteProduct(item.id)}>
-              <Text style={styles.smallButtonText}>Löschen</Text>
+            <Pressable style={[styles.smallButton, styles.delete, { backgroundColor: theme.danger }]} onPress={() => void deleteProduct(item.id)}>
+              <Text style={[styles.smallButtonText, { color: theme.dangerText }]}>Löschen</Text>
             </Pressable>
           </View>
         </View>
@@ -141,27 +143,24 @@ export default function ProductsScreen() {
 }
 
 const styles = StyleSheet.create({
-  list: { flex: 1, backgroundColor: '#07090f' },
-  formCard: { backgroundColor: '#10172a', borderRadius: 14, borderWidth: 1, borderColor: '#1f2937', padding: 12, marginBottom: 12, gap: 8 },
-  title: { color: '#fff', fontWeight: '700', fontSize: 18, marginBottom: 4 },
+  list: { flex: 1 },
+  formCard: { borderRadius: 14, borderWidth: 1, padding: 12, marginBottom: 12, gap: 8 },
+  title: { fontWeight: '700', fontSize: 18, marginBottom: 4 },
   input: {
     borderWidth: 1,
-    borderColor: '#1f2937',
     borderRadius: 10,
     paddingHorizontal: 10,
     paddingVertical: 9,
-    color: '#fff',
-    backgroundColor: '#0b1220',
   },
-  card: { backgroundColor: '#10172a', borderRadius: 14, borderWidth: 1, borderColor: '#1f2937', padding: 12, gap: 4 },
-  name: { color: '#fff', fontWeight: '700', fontSize: 16 },
-  meta: { color: '#94a3b8' },
+  card: { borderRadius: 14, borderWidth: 1, padding: 12, gap: 4 },
+  name: { fontWeight: '700', fontSize: 16 },
+  meta: {},
   row: { flexDirection: 'row', gap: 8, marginTop: 6 },
-  button: { flex: 1, backgroundColor: '#6ee7b7', borderRadius: 10, paddingVertical: 10, alignItems: 'center' },
-  secondary: { backgroundColor: '#334155' },
-  buttonText: { color: '#111827', fontWeight: '700' },
-  smallButton: { backgroundColor: '#334155', borderRadius: 10, paddingHorizontal: 10, paddingVertical: 8 },
-  smallButtonText: { color: '#e5e7eb', fontWeight: '600' },
-  delete: { backgroundColor: '#b91c1c' },
-  status: { color: '#94a3b8', marginTop: 4 },
+  button: { flex: 1, borderRadius: 10, paddingVertical: 10, alignItems: 'center' },
+  secondary: {},
+  buttonText: { fontWeight: '700' },
+  smallButton: { borderRadius: 10, paddingHorizontal: 10, paddingVertical: 8 },
+  smallButtonText: { fontWeight: '600' },
+  delete: {},
+  status: { marginTop: 4 },
 });

@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { MealType, Recipe, RecipeIngredient, useAuth } from '../../src/auth/AuthContext';
+import { mealTypeLabel, useThemePalette } from '../../src/theme';
 
 const mealTypes: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
 
@@ -35,6 +36,7 @@ function parseIngredients(raw: string) {
 
 export default function RecipesScreen() {
   const { recipes, upsertRecipe, deleteRecipe } = useAuth();
+  const theme = useThemePalette();
   const [draft, setDraft] = useState<Recipe>(emptyRecipe);
   const [ingredientsRaw, setIngredientsRaw] = useState('');
   const [tagsRaw, setTagsRaw] = useState('');
@@ -78,50 +80,54 @@ export default function RecipesScreen() {
 
   return (
     <FlatList
-      style={styles.list}
+      style={[styles.list, { backgroundColor: theme.background }]}
       data={sortedRecipes}
       keyExtractor={(item) => item.id}
       contentContainerStyle={{ padding: 16, gap: 10, paddingBottom: 140 }}
       ListHeaderComponent={
-        <View style={styles.formCard}>
-          <Text style={styles.title}>Rezept bearbeiten</Text>
-          <TextInput value={draft.id} onChangeText={(v) => setDraft((d) => ({ ...d, id: v }))} style={styles.input} placeholder="id" placeholderTextColor="#64748b" />
-          <TextInput value={draft.name} onChangeText={(v) => setDraft((d) => ({ ...d, name: v }))} style={styles.input} placeholder="Name" placeholderTextColor="#64748b" />
-          <TextInput value={draft.description} onChangeText={(v) => setDraft((d) => ({ ...d, description: v }))} style={styles.input} placeholder="Beschreibung" placeholderTextColor="#64748b" />
+        <View style={[styles.formCard, { backgroundColor: theme.card, borderColor: theme.border }]}>
+          <Text style={[styles.title, { color: theme.text }]}>Rezept bearbeiten</Text>
+          <TextInput value={draft.id} onChangeText={(v) => setDraft((d) => ({ ...d, id: v }))} style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]} placeholder="id" placeholderTextColor={theme.muted} />
+          <TextInput value={draft.name} onChangeText={(v) => setDraft((d) => ({ ...d, name: v }))} style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]} placeholder="Name" placeholderTextColor={theme.muted} />
+          <TextInput value={draft.description} onChangeText={(v) => setDraft((d) => ({ ...d, description: v }))} style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]} placeholder="Beschreibung" placeholderTextColor={theme.muted} />
           <View style={styles.typeRow}>
             {mealTypes.map((type) => (
               <Pressable
                 key={type}
-                style={[styles.typeChip, draft.mealType === type ? styles.typeChipActive : undefined]}
+                style={[
+                  styles.typeChip,
+                  { borderColor: theme.border },
+                  draft.mealType === type ? [styles.typeChipActive, { backgroundColor: theme.cardAlt }] : undefined,
+                ]}
                 onPress={() => setDraft((d) => ({ ...d, mealType: type }))}
               >
-                <Text style={styles.typeChipText}>{type}</Text>
+                <Text style={[styles.typeChipText, { color: theme.text }]}>{mealTypeLabel(type)}</Text>
               </Pressable>
             ))}
           </View>
-          <TextInput value={tagsRaw} onChangeText={setTagsRaw} style={styles.input} placeholder="tags: high-protein,quick" placeholderTextColor="#64748b" />
+          <TextInput value={tagsRaw} onChangeText={setTagsRaw} style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]} placeholder="Tags: proteinreich,alltag" placeholderTextColor={theme.muted} />
           <TextInput
             value={ingredientsRaw}
             onChangeText={setIngredientsRaw}
-            style={[styles.input, styles.area]}
+            style={[styles.input, styles.area, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]}
             placeholder={'Zutaten je Zeile:\nproduct-id:150'}
-            placeholderTextColor="#64748b"
+            placeholderTextColor={theme.muted}
             multiline
           />
           <TextInput
             value={stepsRaw}
             onChangeText={setStepsRaw}
-            style={[styles.input, styles.area]}
+            style={[styles.input, styles.area, { borderColor: theme.border, color: theme.text, backgroundColor: theme.cardAlt }]}
             placeholder={'Schritte je Zeile:\n1. Schritt'}
-            placeholderTextColor="#64748b"
+            placeholderTextColor={theme.muted}
             multiline
           />
           <View style={styles.row}>
-            <Pressable style={styles.button} onPress={() => void save()}>
-              <Text style={styles.buttonText}>Speichern</Text>
+            <Pressable style={[styles.button, { backgroundColor: theme.accent }]} onPress={() => void save()}>
+              <Text style={[styles.buttonText, { color: theme.accentText }]}>Speichern</Text>
             </Pressable>
             <Pressable
-              style={[styles.button, styles.secondary]}
+              style={[styles.button, styles.secondary, { backgroundColor: theme.cardAlt }]}
               onPress={() => {
                 setDraft(emptyRecipe);
                 setIngredientsRaw('');
@@ -130,23 +136,23 @@ export default function RecipesScreen() {
                 setStatus('Neues Rezept');
               }}
             >
-              <Text style={styles.buttonText}>Neu</Text>
+              <Text style={[styles.buttonText, { color: theme.text }]}>Neu</Text>
             </Pressable>
           </View>
-          {status ? <Text style={styles.status}>{status}</Text> : null}
+          {status ? <Text style={[styles.status, { color: theme.muted }]}>{status}</Text> : null}
         </View>
       }
       renderItem={({ item }) => (
-        <View style={styles.card}>
-          <Text style={styles.name}>{item.name}</Text>
-          <Text style={styles.meta}>{item.id} · {item.mealType}</Text>
-          <Text style={styles.meta}>{item.ingredients.length} Zutaten · {item.instructions.length} Schritte</Text>
+        <View style={[styles.card, { borderColor: theme.border, backgroundColor: theme.card }]}>
+          <Text style={[styles.name, { color: theme.text }]}>{item.name}</Text>
+          <Text style={[styles.meta, { color: theme.muted }]}>{item.id} · {mealTypeLabel(item.mealType)}</Text>
+          <Text style={[styles.meta, { color: theme.muted }]}>{item.ingredients.length} Zutaten · {item.instructions.length} Schritte</Text>
           <View style={styles.row}>
-            <Pressable style={styles.smallButton} onPress={() => startEdit(item)}>
-              <Text style={styles.smallButtonText}>Bearbeiten</Text>
+            <Pressable style={[styles.smallButton, { backgroundColor: theme.cardAlt }]} onPress={() => startEdit(item)}>
+              <Text style={[styles.smallButtonText, { color: theme.text }]}>Bearbeiten</Text>
             </Pressable>
-            <Pressable style={[styles.smallButton, styles.delete]} onPress={() => void deleteRecipe(item.id)}>
-              <Text style={styles.smallButtonText}>Löschen</Text>
+            <Pressable style={[styles.smallButton, styles.delete, { backgroundColor: theme.danger }]} onPress={() => void deleteRecipe(item.id)}>
+              <Text style={[styles.smallButtonText, { color: theme.dangerText }]}>Löschen</Text>
             </Pressable>
           </View>
         </View>
@@ -156,32 +162,29 @@ export default function RecipesScreen() {
 }
 
 const styles = StyleSheet.create({
-  list: { flex: 1, backgroundColor: '#07090f' },
-  formCard: { backgroundColor: '#10172a', borderRadius: 14, borderWidth: 1, borderColor: '#1f2937', padding: 12, marginBottom: 12, gap: 8 },
-  title: { color: '#fff', fontWeight: '700', fontSize: 18, marginBottom: 4 },
+  list: { flex: 1 },
+  formCard: { borderRadius: 14, borderWidth: 1, padding: 12, marginBottom: 12, gap: 8 },
+  title: { fontWeight: '700', fontSize: 18, marginBottom: 4 },
   input: {
     borderWidth: 1,
-    borderColor: '#1f2937',
     borderRadius: 10,
     paddingHorizontal: 10,
     paddingVertical: 9,
-    color: '#fff',
-    backgroundColor: '#0b1220',
   },
   area: { minHeight: 88, textAlignVertical: 'top' },
   typeRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  typeChip: { borderRadius: 12, borderWidth: 1, borderColor: '#334155', paddingHorizontal: 10, paddingVertical: 6 },
-  typeChipActive: { backgroundColor: '#334155' },
-  typeChipText: { color: '#e5e7eb', fontSize: 12, textTransform: 'capitalize' },
-  card: { backgroundColor: '#10172a', borderRadius: 14, borderWidth: 1, borderColor: '#1f2937', padding: 12, gap: 4 },
-  name: { color: '#fff', fontWeight: '700', fontSize: 16 },
-  meta: { color: '#94a3b8' },
+  typeChip: { borderRadius: 12, borderWidth: 1, paddingHorizontal: 10, paddingVertical: 6 },
+  typeChipActive: {},
+  typeChipText: { fontSize: 12 },
+  card: { borderRadius: 14, borderWidth: 1, padding: 12, gap: 4 },
+  name: { fontWeight: '700', fontSize: 16 },
+  meta: {},
   row: { flexDirection: 'row', gap: 8, marginTop: 6 },
-  button: { flex: 1, backgroundColor: '#6ee7b7', borderRadius: 10, paddingVertical: 10, alignItems: 'center' },
-  secondary: { backgroundColor: '#334155' },
-  buttonText: { color: '#111827', fontWeight: '700' },
-  smallButton: { backgroundColor: '#334155', borderRadius: 10, paddingHorizontal: 10, paddingVertical: 8 },
-  smallButtonText: { color: '#e5e7eb', fontWeight: '600' },
-  delete: { backgroundColor: '#b91c1c' },
-  status: { color: '#94a3b8', marginTop: 4 },
+  button: { flex: 1, borderRadius: 10, paddingVertical: 10, alignItems: 'center' },
+  secondary: {},
+  buttonText: { fontWeight: '700' },
+  smallButton: { borderRadius: 10, paddingHorizontal: 10, paddingVertical: 8 },
+  smallButtonText: { fontWeight: '600' },
+  delete: {},
+  status: { marginTop: 4 },
 });

@@ -2,6 +2,7 @@ import { Link } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useAuth } from '../../src/auth/AuthContext';
+import { useThemePalette } from '../../src/theme';
 
 function formatDate(date: Date) {
   return date.toISOString().slice(0, 10);
@@ -16,6 +17,7 @@ const INITIAL_END_DATE = (() => {
 
 export default function PlannerScreen() {
   const { generatePlan, plans } = useAuth();
+  const theme = useThemePalette();
   const [startDate, setStartDate] = useState(INITIAL_START_DATE);
   const [endDate, setEndDate] = useState(INITIAL_END_DATE);
   const [calorieTarget, setCalorieTarget] = useState('2000');
@@ -23,14 +25,14 @@ export default function PlannerScreen() {
   const [status, setStatus] = useState('');
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Plan erstellen</Text>
-      <TextInput value={startDate} onChangeText={setStartDate} style={styles.input} placeholder="YYYY-MM-DD" placeholderTextColor="#64748b" />
-      <TextInput value={endDate} onChangeText={setEndDate} style={styles.input} placeholder="YYYY-MM-DD" placeholderTextColor="#64748b" />
-      <TextInput value={calorieTarget} onChangeText={setCalorieTarget} style={styles.input} keyboardType="numeric" placeholder="Kalorien" placeholderTextColor="#64748b" />
-      <TextInput value={proteinTarget} onChangeText={setProteinTarget} style={styles.input} keyboardType="numeric" placeholder="Protein" placeholderTextColor="#64748b" />
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <Text style={[styles.title, { color: theme.text }]}>Planung</Text>
+      <TextInput value={startDate} onChangeText={setStartDate} style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.card }]} placeholder="YYYY-MM-DD" placeholderTextColor={theme.muted} />
+      <TextInput value={endDate} onChangeText={setEndDate} style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.card }]} placeholder="YYYY-MM-DD" placeholderTextColor={theme.muted} />
+      <TextInput value={calorieTarget} onChangeText={setCalorieTarget} style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.card }]} keyboardType="numeric" placeholder="Kalorienziel" placeholderTextColor={theme.muted} />
+      <TextInput value={proteinTarget} onChangeText={setProteinTarget} style={[styles.input, { borderColor: theme.border, color: theme.text, backgroundColor: theme.card }]} keyboardType="numeric" placeholder="Proteinziel" placeholderTextColor={theme.muted} />
       <Pressable
-        style={styles.button}
+        style={[styles.button, { backgroundColor: theme.accent }]}
         onPress={async () => {
           try {
             setStatus('Erstelle Plan...');
@@ -46,42 +48,40 @@ export default function PlannerScreen() {
           }
         }}
       >
-        <Text style={styles.buttonText}>Plan generieren</Text>
+        <Text style={[styles.buttonText, { color: theme.accentText }]}>Plan generieren</Text>
       </Pressable>
-      <Text style={styles.status}>Pläne gesamt: {plans.length}</Text>
+      <Text style={[styles.status, { color: theme.muted }]}>Pläne gesamt: {plans.length}</Text>
       <View style={styles.planList}>
         {plans.slice(0, 6).map((plan) => (
           <Link key={plan.id} href={`/plan/${plan.id}`} asChild>
-            <Pressable style={styles.planCard}>
-              <Text style={styles.planTitle}>{plan.startDate} bis {plan.endDate}</Text>
-              <Text style={styles.planMeta}>{plan.calorieTarget} kcal · {plan.proteinTarget}g Protein</Text>
-              <Text style={styles.planMeta}>{plan.meals.length} Mahlzeiten</Text>
+            <Pressable style={[styles.planCard, { borderColor: theme.border, backgroundColor: theme.card }]}>
+              <Text style={[styles.planTitle, { color: theme.text }]}>{plan.startDate} bis {plan.endDate}</Text>
+              <Text style={[styles.planMeta, { color: theme.muted }]}>{plan.calorieTarget} kcal · {plan.proteinTarget} g Protein</Text>
+              <Text style={[styles.planMeta, { color: theme.muted }]}>{plan.meals.length} Mahlzeiten</Text>
             </Pressable>
           </Link>
         ))}
       </View>
-      {status ? <Text style={styles.status}>{status}</Text> : null}
+      {status ? <Text style={[styles.status, { color: theme.muted }]}>{status}</Text> : null}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16, gap: 10, backgroundColor: '#07090f' },
-  title: { color: '#fff', fontSize: 22, fontWeight: '700', marginBottom: 4 },
+  container: { flex: 1, padding: 16, gap: 10 },
+  title: { fontSize: 22, fontWeight: '700', marginBottom: 4 },
   input: {
     borderWidth: 1,
     borderColor: '#1f2937',
     borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    color: '#fff',
-    backgroundColor: '#10172a',
   },
-  button: { backgroundColor: '#6ee7b7', borderRadius: 12, paddingVertical: 12, alignItems: 'center', marginTop: 4 },
-  buttonText: { color: '#111827', fontWeight: '700' },
-  status: { color: '#94a3b8', marginTop: 8 },
+  button: { borderRadius: 12, paddingVertical: 12, alignItems: 'center', marginTop: 4 },
+  buttonText: { fontWeight: '700' },
+  status: { marginTop: 8 },
   planList: { gap: 8, marginTop: 8 },
-  planCard: { borderWidth: 1, borderColor: '#1f2937', borderRadius: 12, backgroundColor: '#10172a', padding: 10 },
-  planTitle: { color: '#fff', fontWeight: '700' },
-  planMeta: { color: '#94a3b8', marginTop: 3 },
+  planCard: { borderWidth: 1, borderRadius: 12, padding: 10 },
+  planTitle: { fontWeight: '700' },
+  planMeta: { marginTop: 3 },
 });
