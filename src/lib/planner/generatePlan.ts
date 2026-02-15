@@ -1,3 +1,4 @@
+import { Prisma } from "@prisma/client";
 import { prisma } from "../db";
 import { plannerInputSchema } from "../validation/schemas";
 
@@ -54,6 +55,19 @@ export type Macro = {
 };
 
 const MEAL_TYPES = ["breakfast", "lunch", "dinner", "snack"] as const;
+type MealType = (typeof MEAL_TYPES)[number];
+type DbRecipeWithIngredients = Prisma.RecipeGetPayload<{
+  include: { ingredients: { include: { product: true } } };
+}>;
+
+function toStringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter((item): item is string => typeof item === "string" && item.length > 0);
+}
+
+function isMealType(value: string): value is MealType {
+  return (MEAL_TYPES as readonly string[]).includes(value);
+}
 
 function computeIngredientMacros(ingredient: RecipeIngredientWithProduct) {
   const factor = ingredient.amount_g / 100;
@@ -128,9 +142,7 @@ export async function generatePlan(input: PlannerInput) {
   if (start > end) throw new Error("Start date must be before end date");
 
   const profile = await prisma.profile.findUnique({ where: { userId: parsed.userId } });
-  const excluded = new Set<string>(
-    Array.isArray(profile?.excludedProducts) ? (profile?.excludedProducts as string[]) : []
-  );
+  const excluded = new Set<string>(toStringArray(profile?.excludedProducts));
 
   const products = await prisma.product.findMany();
   const productMap = products.reduce((acc: ProductMap, p: (typeof products)[number]) => {
@@ -140,7 +152,7 @@ export async function generatePlan(input: PlannerInput) {
       fat_per_100g: p.fat_per_100g,
       carbs_per_100g: p.carbs_per_100g,
       fiber_per_100g: p.fiber_per_100g,
-      allowed_substitutes: (p.allowed_substitutes as string[]) ?? [],
+      allowed_substitutes: toStringArray(p.allowed_substitutes),
     };
     return acc;
   }, {} as ProductMap);
@@ -155,12 +167,44 @@ export async function generatePlan(input: PlannerInput) {
     },
   });
 
-  const recipesByMeal: Record<string, RecipeWithIngredients[]> = {};
-  for (const r of recipes) {
-    const substituted = substituteIngredients(r as any, excluded, productMap) ?? null;
+  const recipesByMeal: Record<MealType, RecipeWithIngredients[]> = {
+    breakfast: [],
+    lunch: [],
+    dinner: [],
+    snack: [],
+  };
+  for (const r of recipes as DbRecipeWithIngredients[]) {
+    if (!isMealType(r.mealType)) continue;
+    const normalized: RecipeWithIngredients = {
+      id: r.id,
+      name: r.name,
+      mealType: r.mealType,
+      instructions: r.instructions,
+      tags: r.tags,
+      description: r.description,
+      ingredients: r.ingredients.map((ing) => ({
+        productId: ing.productId,
+        amount_g: ing.amount_g,
+        product: {
+          id: ing.product.id,
+          kcal_per_100g: ing.product.kcal_per_100g,
+          protein_per_100g: ing.product.protein_per_100g,
+          fat_per_100g: ing.product.fat_per_100g,
+          carbs_per_100g: ing.product.carbs_per_100g,
+          fiber_per_100g: ing.product.fiber_per_100g,
+          allowed_substitutes: toStringArray(ing.product.allowed_substitutes),
+        },
+      })),
+    };
+    const substituted = substituteIngredients(normalized, excluded, productMap) ?? null;
     if (!substituted) continue;
-    recipesByMeal[r.mealType] = recipesByMeal[r.mealType] || [];
     recipesByMeal[r.mealType].push(substituted);
+  }
+
+  for (const mealType of MEAL_TYPES) {
+    if (!recipesByMeal[mealType].length) {
+      throw new Error(`No valid recipes available for meal type: ${mealType}`);
+    }
   }
 
   const days: Date[] = [];
@@ -170,17 +214,16 @@ export async function generatePlan(input: PlannerInput) {
 
   const planMeals: { date: Date; recipeId: string; mealType: string }[] = [];
   for (const day of days) {
-    const selected: RecipeWithIngredients[] = [];
+    let selected: RecipeWithIngredients[] | null = null;
     const attempts = 30;
     for (let i = 0; i < attempts; i++) {
-      selected.length = 0;
+      const attemptSelection: RecipeWithIngredients[] = [];
       for (const meal of MEAL_TYPES) {
-        const pool = recipesByMeal[meal] ?? [];
-        if (!pool.length) continue;
+        const pool = recipesByMeal[meal];
         const pick = pool[Math.floor(Math.random() * pool.length)];
-        selected.push(pick);
+        attemptSelection.push(pick);
       }
-      const totals = selected.reduce(
+      const totals = attemptSelection.reduce(
         (acc, r) => {
           const m = computeRecipeMacros(r);
           return {
@@ -194,9 +237,16 @@ export async function generatePlan(input: PlannerInput) {
         { kcal: 0, protein: 0, fat: 0, carbs: 0, fiber: 0 }
       );
       if (isWithinTargets(totals, parsed.calorieTarget, parsed.proteinTarget)) {
+        selected = attemptSelection;
         break;
       }
     }
+
+    if (!selected) {
+      const dayLabel = day.toISOString().slice(0, 10);
+      throw new Error(`Unable to generate a valid meal set for ${dayLabel} with current constraints`);
+    }
+
     for (const meal of selected) {
       planMeals.push({ date: new Date(day), recipeId: meal.id, mealType: meal.mealType });
     }

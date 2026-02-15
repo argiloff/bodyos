@@ -1,4 +1,4 @@
-import { auth } from "@/lib/auth/options";
+import { getCurrentSession } from "@/lib/auth/session";
 import { groceryService } from "@/lib/services/grocery.service";
 import { BottomNav } from "@/components/BottomNav";
 import { redirect } from "next/navigation";
@@ -8,7 +8,7 @@ export default async function GroceryPage({
 }: {
   searchParams: { start?: string; end?: string };
 }) {
-  const session = await auth();
+  const session = await getCurrentSession();
   if (!session?.user?.id) {
     redirect("/login");
   }
@@ -27,7 +27,7 @@ export default async function GroceryPage({
       <h1 className="text-2xl font-semibold">Einkaufsliste</h1>
       {!start || !end ? (
         <p className="text-muted text-sm">
-          Wähle zuerst einen Plan im Planner aus. Der Link "Einkaufsliste" öffnet diese Seite automatisch mit den passenden
+          Wähle zuerst einen Plan im Planner aus. Der Link &quot;Einkaufsliste&quot; öffnet diese Seite automatisch mit den passenden
           Daten.
         </p>
       ) : (

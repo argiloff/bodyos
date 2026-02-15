@@ -1,4 +1,5 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
+import { NextAuthOptions } from "next-auth";
+import type { User } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { compare } from "bcrypt";
@@ -28,7 +29,12 @@ export const authOptions: NextAuthOptions = {
         if (!user) return null;
         const valid = await compare(password, user.passwordHash);
         if (!valid) return null;
-        return { id: user.id, email: user.email } as any;
+        const authUser: User = {
+          id: user.id,
+          email: user.email,
+          name: user.email,
+        };
+        return authUser;
       },
     }),
   ],
@@ -44,5 +50,3 @@ export const authOptions: NextAuthOptions = {
     },
   },
 };
-
-export const { auth } = NextAuth(authOptions);

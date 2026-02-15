@@ -1,11 +1,11 @@
-import { auth } from "@/lib/auth/options";
+import { getCurrentSession } from "@/lib/auth/session";
 import { prisma } from "@/lib/db";
 import { BottomNav } from "@/components/BottomNav";
 import { Calendar, Dumbbell, ChefHat } from "lucide-react";
 import Link from "next/link";
 
 export default async function DashboardPage() {
-  const session = await auth();
+  const session = await getCurrentSession();
   const userId = session?.user?.id;
   if (!userId) return null;
 

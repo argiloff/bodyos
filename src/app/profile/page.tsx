@@ -3,8 +3,19 @@
 import { useEffect, useState } from "react";
 import { BottomNav } from "@/components/BottomNav";
 
+type ProfileState = {
+  weight?: number;
+  height?: number;
+  age?: number;
+  activityLevel?: string;
+  calorieTarget?: number;
+  proteinTarget?: number;
+  goalWeight?: number;
+  excludedProducts?: string[];
+};
+
 export default function ProfilePage() {
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<ProfileState | null>(null);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
 
@@ -26,8 +37,8 @@ export default function ProfilePage() {
     setMessage("Gespeichert");
   };
 
-  const updateField = (key: string, value: any) => {
-    setProfile((p: any) => ({ ...(p || {}), [key]: value }));
+  const updateField = <K extends keyof ProfileState>(key: K, value: ProfileState[K]) => {
+    setProfile((p) => ({ ...(p || {}), [key]: value }));
   };
 
   if (loading) return <main className="p-4">Lädt...</main>;

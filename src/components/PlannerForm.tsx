@@ -2,13 +2,20 @@
 
 import { useState } from "react";
 
+const INITIAL_START_DATE = new Date().toISOString().slice(0, 10);
+const INITIAL_END_DATE = (() => {
+  const date = new Date();
+  date.setDate(date.getDate() + 6);
+  return date.toISOString().slice(0, 10);
+})();
+
 export function PlannerForm({
   defaults,
 }: {
   defaults: { calorieTarget?: number | null; proteinTarget?: number | null };
 }) {
-  const [startDate, setStartDate] = useState<string>(new Date().toISOString().slice(0, 10));
-  const [endDate, setEndDate] = useState<string>(new Date(Date.now() + 6 * 86400000).toISOString().slice(0, 10));
+  const [startDate, setStartDate] = useState<string>(INITIAL_START_DATE);
+  const [endDate, setEndDate] = useState<string>(INITIAL_END_DATE);
   const [calorieTarget, setCalorieTarget] = useState<number | string>(defaults.calorieTarget ?? 2000);
   const [proteinTarget, setProteinTarget] = useState<number | string>(defaults.proteinTarget ?? 140);
   const [status, setStatus] = useState<string>("");

@@ -17,6 +17,18 @@ export const recipeIngredientSchema = z.object({
   amount_g: z.number().int().positive(),
 });
 
+export const importRecipeIngredientSchema = z
+  .object({
+    productId: z.string().min(1).optional(),
+    product_id: z.string().min(1).optional(),
+    amount_g: z.number().int().positive(),
+  })
+  .transform((value) => ({
+    productId: value.productId ?? value.product_id ?? "",
+    amount_g: value.amount_g,
+  }))
+  .pipe(recipeIngredientSchema);
+
 export const recipeSchema = z.object({
   id: z.string().optional(),
   name: z.string().min(1),
@@ -27,9 +39,19 @@ export const recipeSchema = z.object({
   ingredients: z.array(recipeIngredientSchema).min(1),
 });
 
+export const importRecipeSchema = z.object({
+  id: z.string().optional(),
+  name: z.string().min(1),
+  description: z.string().default(""),
+  mealType: z.enum(["breakfast", "lunch", "dinner", "snack"]),
+  tags: z.array(z.string()).default([]),
+  instructions: z.array(z.string()).default([]),
+  ingredients: z.array(importRecipeIngredientSchema).min(1),
+});
+
 export const importPayloadSchema = z.object({
   products: z.array(productSchema),
-  recipes: z.array(recipeSchema),
+  recipes: z.array(importRecipeSchema),
 });
 
 export const plannerInputSchema = z.object({
@@ -38,4 +60,15 @@ export const plannerInputSchema = z.object({
   endDate: z.string().min(1),
   calorieTarget: z.number().int().positive(),
   proteinTarget: z.number().int().positive(),
+});
+
+export const profileUpdateSchema = z.object({
+  weight: z.number().int().positive().optional(),
+  height: z.number().int().positive().optional(),
+  age: z.number().int().positive().optional(),
+  activityLevel: z.string().min(1).optional(),
+  calorieTarget: z.number().int().positive().optional(),
+  proteinTarget: z.number().int().positive().optional(),
+  goalWeight: z.number().int().positive().optional(),
+  excludedProducts: z.array(z.string().min(1)).optional(),
 });

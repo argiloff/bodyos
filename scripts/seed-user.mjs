@@ -9,7 +9,7 @@ async function main() {
   const password = process.env.SEED_PASSWORD || "Passw0rd!";
   const passwordHash = await bcrypt.hash(password, 10);
 
-  const user = await prisma.user.upsert({
+  await prisma.user.upsert({
     where: { email },
     update: { passwordHash },
     create: {
