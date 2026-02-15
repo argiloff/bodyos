@@ -1,32 +1,20 @@
 import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useAuth } from '../src/auth/AuthContext';
-import { api } from '../src/lib/api';
-
-type Profile = {
-  calorieTarget?: number | null;
-  proteinTarget?: number | null;
-  excludedProducts?: string[];
-};
 
 export default function ProfileScreen() {
-  const { token } = useAuth();
+  const { profile, updateProfile } = useAuth();
   const [calorieTarget, setCalorieTarget] = useState('2000');
   const [proteinTarget, setProteinTarget] = useState('140');
   const [excludedProducts, setExcludedProducts] = useState('');
   const [status, setStatus] = useState('');
 
   useEffect(() => {
-    if (!token) return;
-    api.get<Profile | null>('/api/profile', token)
-      .then((profile) => {
-        if (!profile) return;
-        if (profile.calorieTarget) setCalorieTarget(String(profile.calorieTarget));
-        if (profile.proteinTarget) setProteinTarget(String(profile.proteinTarget));
-        if (profile.excludedProducts) setExcludedProducts(profile.excludedProducts.join(','));
-      })
-      .catch(() => undefined);
-  }, [token]);
+    if (!profile) return;
+    if (profile.calorieTarget) setCalorieTarget(String(profile.calorieTarget));
+    if (profile.proteinTarget) setProteinTarget(String(profile.proteinTarget));
+    if (profile.excludedProducts) setExcludedProducts(profile.excludedProducts.join(','));
+  }, [profile]);
 
   return (
     <View style={styles.container}>
@@ -37,14 +25,13 @@ export default function ProfileScreen() {
       <Pressable
         style={styles.button}
         onPress={async () => {
-          if (!token) return;
           try {
             setStatus('Speichere...');
-            await api.post('/api/profile', {
+            await updateProfile({
               calorieTarget: Number(calorieTarget),
               proteinTarget: Number(proteinTarget),
               excludedProducts: excludedProducts.split(',').map((s) => s.trim()).filter(Boolean),
-            }, token);
+            });
             setStatus('Gespeichert');
           } catch (error) {
             setStatus(error instanceof Error ? error.message : 'Fehler');

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useAuth } from '../../src/auth/AuthContext';
-import { api } from '../../src/lib/api';
 
 function formatDate(date: Date) {
   return date.toISOString().slice(0, 10);
@@ -15,7 +14,7 @@ const INITIAL_END_DATE = (() => {
 })();
 
 export default function PlannerScreen() {
-  const { token } = useAuth();
+  const { generatePlan, plans } = useAuth();
   const [startDate, setStartDate] = useState(INITIAL_START_DATE);
   const [endDate, setEndDate] = useState(INITIAL_END_DATE);
   const [calorieTarget, setCalorieTarget] = useState('2000');
@@ -32,15 +31,14 @@ export default function PlannerScreen() {
       <Pressable
         style={styles.button}
         onPress={async () => {
-          if (!token) return;
           try {
             setStatus('Erstelle Plan...');
-            await api.post('/api/planner', {
+            await generatePlan({
               startDate,
               endDate,
               calorieTarget: Number(calorieTarget),
               proteinTarget: Number(proteinTarget),
-            }, token);
+            });
             setStatus('Plan gespeichert');
           } catch (error) {
             setStatus(error instanceof Error ? error.message : 'Fehler');
@@ -49,6 +47,7 @@ export default function PlannerScreen() {
       >
         <Text style={styles.buttonText}>Plan generieren</Text>
       </Pressable>
+      <Text style={styles.status}>Pläne gesamt: {plans.length}</Text>
       {status ? <Text style={styles.status}>{status}</Text> : null}
     </View>
   );

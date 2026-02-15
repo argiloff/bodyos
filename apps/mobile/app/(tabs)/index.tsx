@@ -1,35 +1,8 @@
-import { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useAuth } from '../../src/auth/AuthContext';
-import { api } from '../../src/lib/api';
-
-type Plan = { id: string };
-
-type Profile = {
-  calorieTarget?: number | null;
-  proteinTarget?: number | null;
-};
 
 export default function HomeScreen() {
-  const { token, user } = useAuth();
-  const [profile, setProfile] = useState<Profile | null>(null);
-  const [plans, setPlans] = useState<Plan[]>([]);
-
-  useEffect(() => {
-    if (!token) return;
-    Promise.all([
-      api.get<Profile | null>('/api/profile', token),
-      api.get<Plan[]>('/api/plans', token),
-    ])
-      .then(([profileData, plansData]) => {
-        setProfile(profileData);
-        setPlans(plansData);
-      })
-      .catch(() => {
-        setProfile(null);
-        setPlans([]);
-      });
-  }, [token]);
+  const { user, profile, plans, products, recipes } = useAuth();
 
   return (
     <View style={styles.container}>
@@ -43,6 +16,10 @@ export default function HomeScreen() {
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Gespeicherte Pläne</Text>
         <Text style={styles.cardValue}>{plans.length}</Text>
+      </View>
+      <View style={styles.card}>
+        <Text style={styles.cardTitle}>Daten</Text>
+        <Text style={styles.cardValue}>{products.length} Produkte / {recipes.length} Rezepte</Text>
       </View>
     </View>
   );

@@ -1,103 +1,48 @@
-# BodyOS
+# BodyOS (Expo Only)
 
-BodyOS ist jetzt als Hybrid-Stack aufgebaut:
+BodyOS läuft jetzt als **eine einzige Expo-App** für:
 
-- `Next.js` App (`/src`) als Backend + Web-App (API, DB, Auth.js)
-- `Expo` App (`/apps/mobile`) als native iOS/Android/Web Client
+- Web
+- iOS
+- Android
 
-So kannst du sofort mit Expo starten und später native Builds veröffentlichen, ohne das Backend neu zu bauen.
+Es gibt **kein Next.js Backend** mehr. Alle Daten werden lokal in der App gespeichert (AsyncStorage).
 
-## Architektur
-
-- Backend/API: Next.js App Router + Prisma + SQLite
-- Web UI: Next.js
-- Mobile UI: Expo Router (React Native)
-- Mobile Auth: Bearer Token über `/api/mobile/login` und `/api/mobile/me`
-- Session Auth (Web): NextAuth Credentials
-
-## Voraussetzungen
-
-- Node.js 20+
-- npm
-- Für iOS Builds: Xcode + Apple Developer Setup
-
-## Setup
+## Start
 
 ```bash
 npm install
-```
-
-## Datenbank
-
-```bash
-npm run prisma:generate
-npm run prisma:migrate
-npm run seed:user
-```
-
-Standard Demo-Login:
-
-- `demo@bodyos.local`
-- `Passw0rd!`
-
-## Web starten (Next.js)
-
-```bash
 npm run dev
 ```
 
-## Mobile starten (Expo)
+## Plattformen
 
 ```bash
-npm run dev:mobile
+npm run web
+npm run ios
+npm run android
 ```
 
-Nützliche mobile Commands:
+## Web Export
 
 ```bash
-npm run ios:mobile
-npm run web:mobile
-npm run build:mobile:web
+npm run export:web
 ```
 
-## Mobile API Konfiguration
+## Features
 
-`apps/mobile/app.json`:
+- Login (lokaler Demo-User)
+- Produkte und Rezepte
+- Plan-Generierung
+- Profil-Ziele und Ausschlüsse
+- JSON Import
+- Soft Delete und Hard Delete
 
-```json
-{
-  "expo": {
-    "extra": {
-      "apiBaseUrl": "http://localhost:3000"
-    }
-  }
-}
-```
+## Demo Login
 
-Für echte Geräte muss `apiBaseUrl` auf deine LAN-IP zeigen (nicht `localhost`).
+- Email: `demo@bodyos.local`
+- Passwort: `Passw0rd!`
 
-## Import JSON
+## Beispieldaten
 
-Beispieldatei:
-
-- `public/data/import-100-recipes.json`
-
-Import via Web:
-
-- Seite `/import`
-
-Import via Mobile:
-
-- Tab `Mehr` -> `Import`
-
-## Löschen
-
-- Soft Delete: löscht Produkt-/Rezept-/Planungsdaten
-- Hard Delete: zusätzlich alle User/Profile/Sessions (`/api/import?mode=hard`)
-
-## Hinweise für Produktion
-
-- `NEXTAUTH_SECRET` stark und zufällig setzen
-- SQLite für Einzel-Host ok; für mehrere Nutzer/Instanzen Postgres bevorzugen
-- Mobile Token TTL aktuell 24h (`src/lib/auth/mobileToken.ts`)
-- iOS/Android Release-Builds über EAS Build einrichten
+In der Import-Seite gibt es einen Button `100 Rezepte laden` mit integrierter Beispieldatei.

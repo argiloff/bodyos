@@ -1,14 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
-import { API_BASE_URL } from '../src/lib/config';
 
 export default function SettingsScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Einstellungen</Text>
       <View style={styles.card}>
-        <Text style={styles.key}>API Base URL</Text>
-        <Text style={styles.value}>{API_BASE_URL}</Text>
+        <Text style={styles.key}>Modus</Text>
+        <Text style={styles.value}>Offline-first (lokale Daten in App)</Text>
       </View>
       <View style={styles.card}>
         <Text style={styles.key}>App Version</Text>

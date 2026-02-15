@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useAuth } from '../src/auth/AuthContext';
-import { api } from '../src/lib/api';
+import sampleImport from '../assets/data/import-100-recipes.json';
 
 export default function ImportScreen() {
-  const { token } = useAuth();
+  const { importJson, clearSoft, clearHard, products, recipes } = useAuth();
   const [jsonText, setJsonText] = useState('');
   const [status, setStatus] = useState('');
 
@@ -21,14 +21,22 @@ export default function ImportScreen() {
         placeholderTextColor="#64748b"
       />
       <Pressable
+        style={[styles.button, styles.secondary]}
+        onPress={() => {
+          setJsonText(JSON.stringify(sampleImport));
+          setStatus('Beispieldaten geladen');
+        }}
+      >
+        <Text style={styles.buttonText}>100 Rezepte laden</Text>
+      </Pressable>
+      <Pressable
         style={styles.button}
         onPress={async () => {
-          if (!token) return;
           try {
             setStatus('Import läuft...');
             const payload = JSON.parse(jsonText);
-            await api.post('/api/import', payload, token);
-            setStatus('Import erfolgreich');
+            const result = await importJson(payload);
+            setStatus(`Import erfolgreich: ${result.products} Produkte, ${result.recipes} Rezepte`);
           } catch (error) {
             setStatus(error instanceof Error ? error.message : 'Import fehlgeschlagen');
           }
@@ -39,10 +47,9 @@ export default function ImportScreen() {
       <Pressable
         style={[styles.button, styles.danger]}
         onPress={async () => {
-          if (!token) return;
           try {
             setStatus('Lösche...');
-            await api.delete('/api/import', token);
+            await clearSoft();
             setStatus('Produkt-/Rezept-/Planungsdaten gelöscht');
           } catch (error) {
             setStatus(error instanceof Error ? error.message : 'Löschen fehlgeschlagen');
@@ -51,6 +58,21 @@ export default function ImportScreen() {
       >
         <Text style={[styles.buttonText, styles.dangerText]}>Soft Delete</Text>
       </Pressable>
+      <Pressable
+        style={[styles.button, styles.danger]}
+        onPress={async () => {
+          try {
+            setStatus('Hard Reset läuft...');
+            await clearHard();
+            setStatus('Alles gelöscht. Bitte neu einloggen.');
+          } catch (error) {
+            setStatus(error instanceof Error ? error.message : 'Hard Reset fehlgeschlagen');
+          }
+        }}
+      >
+        <Text style={[styles.buttonText, styles.dangerText]}>Hard Delete</Text>
+      </Pressable>
+      <Text style={styles.status}>Aktuell: {products.length} Produkte / {recipes.length} Rezepte</Text>
       {status ? <Text style={styles.status}>{status}</Text> : null}
     </View>
   );
@@ -72,6 +94,7 @@ const styles = StyleSheet.create({
   button: { backgroundColor: '#6ee7b7', borderRadius: 12, paddingVertical: 12, alignItems: 'center' },
   buttonText: { color: '#111827', fontWeight: '700' },
   danger: { backgroundColor: '#ef4444' },
+  secondary: { backgroundColor: '#334155' },
   dangerText: { color: '#fff' },
   status: { color: '#94a3b8', marginTop: 8 },
 });

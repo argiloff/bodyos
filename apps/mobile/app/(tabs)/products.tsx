@@ -1,21 +1,8 @@
-import { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
-import { api } from '../../src/lib/api';
-
-type Product = {
-  id: string;
-  name: string;
-  category: string;
-  kcal_per_100g: number;
-  protein_per_100g: number;
-};
+import { useAuth } from '../../src/auth/AuthContext';
 
 export default function ProductsScreen() {
-  const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    api.get<Product[]>('/api/products').then(setProducts).catch(() => setProducts([]));
-  }, []);
+  const { products } = useAuth();
 
   return (
     <FlatList

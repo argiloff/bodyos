@@ -1,19 +1,8 @@
-import { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
-import { api } from '../../src/lib/api';
-
-type Recipe = {
-  id: string;
-  name: string;
-  mealType: string;
-};
+import { useAuth } from '../../src/auth/AuthContext';
 
 export default function RecipesScreen() {
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
-
-  useEffect(() => {
-    api.get<Recipe[]>('/api/recipes').then(setRecipes).catch(() => setRecipes([]));
-  }, []);
+  const { recipes } = useAuth();
 
   return (
     <FlatList
