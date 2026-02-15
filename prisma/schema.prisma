@@ -1,14 +1,126 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String
+  createdAt     DateTime  @default(now())
+  profile       Profile?
+  plans         Plan[]
+  accounts      Account[]
+  sessions      Session[]
+}
+
+model Profile {
+  userId           String   @id
+  weight           Int?
+  height           Int?
+  age              Int?
+  activityLevel    String?
+  calorieTarget    Int?
+  proteinTarget    Int?
+  goalWeight       Int?
+  excludedProducts Json     @default(json_array())
+  user             User     @relation(fields: [userId], references: [id])
+}
+
+model Product {
+  id                  String  @id
+  name                String
+  category            String
+  kcal_per_100g       Int
+  protein_per_100g    Float
+  fat_per_100g        Float
+  carbs_per_100g      Float
+  fiber_per_100g      Float
+  allowed_substitutes Json    @default(json_array())
+  recipeIngredients   RecipeIngredient[]
+}
+
+model Recipe {
+  id            String             @id @default(cuid())
+  name          String
+  description   String
+  mealType      String
+  tags          Json               @default(json_array())
+  instructions  Json               @default(json_array())
+  ingredients   RecipeIngredient[]
+  planMeals     PlanMeal[]
+}
+
+model RecipeIngredient {
+  id        String  @id @default(cuid())
+  recipeId  String
+  productId String
+  amount_g  Int
+  recipe    Recipe  @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  @@unique([recipeId, productId])
+}
+
+model Plan {
+  id             String     @id @default(cuid())
+  userId         String
+  startDate      DateTime
+  endDate        DateTime
+  calorieTarget  Int
+  proteinTarget  Int
+  meals          PlanMeal[]
+  user           User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId])
+}
+
+model PlanMeal {
+  id        String   @id @default(cuid())
+  planId    String
+  date      DateTime
+  recipeId  String
+  mealType  String
+  plan      Plan     @relation(fields: [planId], references: [id], onDelete: Cascade)
+  recipe    Recipe   @relation(fields: [recipeId], references: [id])
+  @@index([planId])
+  @@index([date])
+}
+
+// NextAuth models
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?  @db.Text
+  access_token      String?  @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?  @db.Text
+  session_state     String?
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
