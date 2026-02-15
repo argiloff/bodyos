@@ -1,6 +1,5 @@
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -28,7 +27,7 @@ model Profile {
   calorieTarget    Int?
   proteinTarget    Int?
   goalWeight       Int?
-  excludedProducts Json     @default(json_array())
+  excludedProducts Json     @default("[]")
   user             User     @relation(fields: [userId], references: [id])
 }
 
@@ -41,7 +40,7 @@ model Product {
   fat_per_100g        Float
   carbs_per_100g      Float
   fiber_per_100g      Float
-  allowed_substitutes Json    @default(json_array())
+  allowed_substitutes Json    @default("[]")
   recipeIngredients   RecipeIngredient[]
 }
 
@@ -50,8 +49,8 @@ model Recipe {
   name          String
   description   String
   mealType      String
-  tags          Json               @default(json_array())
-  instructions  Json               @default(json_array())
+  tags          Json               @default("[]")
+  instructions  Json               @default("[]")
   ingredients   RecipeIngredient[]
   planMeals     PlanMeal[]
 }
@@ -97,12 +96,12 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String?  @db.Text
-  access_token      String?  @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String?  @db.Text
+  id_token          String?
   session_state     String?
   user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
