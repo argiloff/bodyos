@@ -1,6 +1,6 @@
 import { Redirect, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useAuth } from '../../src/auth/AuthContext';
 import { mealTypeLabel, useThemePalette } from '../../src/theme';
 
@@ -24,12 +24,14 @@ export default function CookModeScreen() {
   }
 
   const steps = recipe.instructions.length ? recipe.instructions : ['Keine Kochschritte hinterlegt'];
+  const stepProgress = ((step + 1) / steps.length) * 100;
   const ingredientRows = recipe.ingredients.map((ingredient) => {
     const product = products.find((entry) => entry.id === ingredient.productId);
     return {
       key: `${ingredient.productId}-${ingredient.amount_g}`,
       name: product?.name ?? ingredient.productId,
       amount: ingredient.amount_g,
+      imageUri: product?.imageUri,
     };
   });
 
@@ -40,13 +42,17 @@ export default function CookModeScreen() {
 
       <View style={[styles.block, { backgroundColor: theme.card, borderColor: theme.border }]}>
         <Text style={[styles.blockTitle, { color: theme.text }]}>Schritt {step + 1} / {steps.length}</Text>
+        <View style={[styles.progressTrack, { backgroundColor: theme.cardAlt }]}>
+          <View style={[styles.progressFill, { backgroundColor: theme.accent, width: `${stepProgress}%` }]} />
+        </View>
         <Text style={[styles.stepText, { color: theme.text }]}>{steps[step]}</Text>
+        {recipe.stepImageUris?.[step] ? <Image source={{ uri: recipe.stepImageUris[step] }} style={styles.stepImage} /> : null}
         <View style={styles.row}>
           <Pressable style={[styles.button, styles.secondary, { backgroundColor: theme.cardAlt }]} onPress={() => setStep((s) => Math.max(0, s - 1))}>
             <Text style={[styles.buttonText, { color: theme.text }]}>Zurück</Text>
           </Pressable>
           <Pressable style={[styles.button, { backgroundColor: theme.accent }]} onPress={() => setStep((s) => Math.min(steps.length - 1, s + 1))}>
-            <Text style={[styles.buttonText, { color: theme.accentText }]}>Weiter</Text>
+            <Text style={[styles.buttonText, { color: theme.accentText }]}>{step + 1 === steps.length ? 'Fertig' : 'Weiter'}</Text>
           </Pressable>
         </View>
       </View>
@@ -64,7 +70,10 @@ export default function CookModeScreen() {
             onPress={() => setChecked((prev) => ({ ...prev, [item.key]: !prev[item.key] }))}
           >
             <Text style={[styles.ingredientText, { color: theme.text }]}>{checked[item.key] ? '☑' : '☐'} {item.name}</Text>
-            <Text style={[styles.ingredientAmount, { color: theme.muted }]}>{item.amount} g</Text>
+            <View style={styles.ingredientRight}>
+              {item.imageUri ? <Image source={{ uri: item.imageUri }} style={styles.ingredientImage} /> : null}
+              <Text style={[styles.ingredientAmount, { color: theme.muted }]}>{item.amount} g</Text>
+            </View>
           </Pressable>
         ))}
       </View>
@@ -79,7 +88,10 @@ const styles = StyleSheet.create({
   meta: { textTransform: 'capitalize' },
   block: { borderWidth: 1, borderRadius: 14, padding: 12, gap: 10 },
   blockTitle: { fontSize: 17, fontWeight: '700' },
+  progressTrack: { height: 8, borderRadius: 999, overflow: 'hidden' },
+  progressFill: { height: '100%', borderRadius: 999 },
   stepText: { fontSize: 20, lineHeight: 30 },
+  stepImage: { width: '100%', height: 170, borderRadius: 10 },
   row: { flexDirection: 'row', gap: 8 },
   button: { flex: 1, borderRadius: 12, paddingVertical: 10, alignItems: 'center' },
   secondary: {},
@@ -94,5 +106,7 @@ const styles = StyleSheet.create({
   },
   ingredientChecked: {},
   ingredientText: { fontSize: 16 },
+  ingredientRight: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  ingredientImage: { width: 36, height: 36, borderRadius: 8 },
   ingredientAmount: { fontWeight: '700' },
 });

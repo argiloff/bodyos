@@ -20,6 +20,7 @@ export type Product = {
   id: string;
   name: string;
   category: string;
+  imageUri?: string;
   kcal_per_100g: number;
   protein_per_100g: number;
   fat_per_100g: number;
@@ -40,6 +41,7 @@ export type Recipe = {
   mealType: MealType;
   tags: string[];
   instructions: string[];
+  stepImageUris?: string[];
   ingredients: RecipeIngredient[];
 };
 
@@ -243,6 +245,16 @@ function uid(prefix: string) {
   return `${prefix}-${Math.random().toString(36).slice(2, 10)}`;
 }
 
+function slugify(input: string) {
+  return input
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 48);
+}
+
 function normalizeIngredient(ingredient: { productId?: string; product_id?: string; amount_g: number }) {
   return {
     productId: ingredient.productId ?? ingredient.product_id ?? '',
@@ -326,12 +338,17 @@ function normalizeStoreToGerman(input: Store): { store: Store; changed: boolean 
       changed = true;
     }
 
+    const normalizedStepImages = Array.isArray((recipe as { stepImageUris?: unknown }).stepImageUris)
+      ? ((recipe as { stepImageUris?: unknown }).stepImageUris as unknown[]).filter((v): v is string => typeof v === 'string')
+      : [];
+
     return {
       ...recipe,
       name: nextName,
       description: nextDescription,
       instructions: nextInstructions,
       tags: nextTags,
+      stepImageUris: normalizedStepImages,
     };
   });
 
@@ -430,7 +447,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         const nextProductsById = new Map<string, Product>(store.products.map((p) => [p.id, p]));
         for (const product of payload.products) {
           if (!product.id) continue;
-          nextProductsById.set(product.id, { ...product, allowed_substitutes: product.allowed_substitutes ?? [] });
+          nextProductsById.set(product.id, {
+            ...product,
+            imageUri: product.imageUri?.trim() || undefined,
+            allowed_substitutes: product.allowed_substitutes ?? [],
+          });
         }
         const nextProducts = [...nextProductsById.values()];
 
@@ -445,6 +466,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             mealType: rawRecipe.mealType,
             tags: rawRecipe.tags ?? [],
             instructions: rawRecipe.instructions ?? [],
+            stepImageUris: (rawRecipe.stepImageUris ?? []).map((uri) => uri?.trim() ?? '').filter(Boolean),
             ingredients: normalizedIngredients,
           });
         }
@@ -553,12 +575,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       },
       async upsertRecipe(recipe) {
         if (!user) throw new Error('Nicht eingeloggt');
-        if (!recipe.id.trim()) throw new Error('Rezept-ID fehlt');
         if (!recipe.ingredients.length) throw new Error('Mindestens eine Zutat erforderlich');
+        const baseId = recipe.id.trim() || slugify(recipe.name) || uid('rezept');
+        let nextId = baseId;
+        const existsWithOther = (id: string) => store.recipes.some((entry) => entry.id === id && entry.id !== recipe.id);
+        let counter = 2;
+        while (existsWithOther(nextId)) {
+          nextId = `${baseId}-${counter}`;
+          counter += 1;
+        }
+        const normalized: Recipe = {
+          ...recipe,
+          id: nextId,
+          stepImageUris: recipe.stepImageUris ?? [],
+        };
         const nextRecipes = [...store.recipes];
-        const index = nextRecipes.findIndex((entry) => entry.id === recipe.id);
-        if (index >= 0) nextRecipes[index] = recipe;
-        else nextRecipes.push(recipe);
+        const index = nextRecipes.findIndex((entry) => entry.id === recipe.id || entry.id === nextId);
+        if (index >= 0) nextRecipes[index] = normalized;
+        else nextRecipes.push(normalized);
         await persist({ ...store, recipes: nextRecipes });
       },
       async deleteRecipe(recipeId) {
