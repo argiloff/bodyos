@@ -47,3 +47,6 @@ next-env.d.ts
 
 expo-env.d.ts
 # @end expo-cli
+
+# Dist
+dist
